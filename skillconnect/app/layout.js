@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Footers1 from '@/components/footers/Footers1'
