@@ -27,7 +27,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import Stickylist from '../lists/stickylist'
+import Stickylist from '../lists/Stickylist'
 import DescriptionList from '../descriptionlist/page'
 import Coursevideo1 from '../CourseVideo/Coursevideo1'
 
