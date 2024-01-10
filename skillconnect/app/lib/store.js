@@ -1,6 +1,6 @@
 "use client";
 import { combineReducers, configureStore  } from "@reduxjs/toolkit";
-import counterReducer from "./Features/counter/counterSlice";
+import counterReducer from "./Features/counter/CounterSlice";
 
 
 const rootReducer = combineReducers({
