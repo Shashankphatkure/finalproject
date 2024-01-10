@@ -2,7 +2,6 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "../lib/Features/counter/counterSlice";
-import Compo from "./compo";
 
 
 export default function Home() {
@@ -20,8 +19,6 @@ export default function Home() {
       <br/>
       <button onClick={() => dispatch(decrement())}>Decrement by 1</button>
     </div>
-    
-  <Compo/>
   </div>
   );
 }
