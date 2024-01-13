@@ -1,13 +1,14 @@
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement } from "../lib/Features/cart/CartSlice";
+import { increment, decrement } from "../lib/Features/counter/CounterSlice";
 import Notification1 from "@/components/notifications/notification1";
+
 
 
 export default function Home() {
 //useSelector gets the state from store
-  const count = useSelector((state) => state.cart.value); // Access the counter state
+  const count = useSelector((state) => state.counter.value); // Access the counter state
 
 //useDispatch updates the store with the state from a component, as defined by your logic inside the counterslice.js
   const dispatch = useDispatch();
