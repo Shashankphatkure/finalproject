@@ -1,5 +1,5 @@
 "use client"
-
+import Link from 'next/link'
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
@@ -34,9 +34,9 @@ const products = [
   },
 ]
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
+  { name: 'Subscription', href: '/pricing', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
-  { name: 'View all products', href: '#', icon: RectangleGroupIcon },
+  { name: 'View all courses', href: '/course', icon: RectangleGroupIcon },
 ]
 
 function classNames(...classes) {
@@ -50,10 +50,12 @@ export default function Headers1() {
     <header className="relative isolate z-10 bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link href="/">
+          <div className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-          </a>
+          </div>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -68,7 +70,7 @@ export default function Headers1() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover>
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Product
+              Courses
               <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </Popover.Button>
 
@@ -116,15 +118,21 @@ export default function Headers1() {
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Features
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Marketplace
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
-          </a>
+          <Link href="/jobs" className="text-sm font-semibold leading-6 text-gray-900">
+            Jobs
+          </Link>
+          <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            Internships
+          </Link>
+          <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            Events
+          </Link>
+          <Link href="/shop" className="text-sm font-semibold leading-6 text-gray-900">
+            Shop
+          </Link>
+          <Link href="/aboutus" className="text-sm font-semibold leading-6 text-gray-900">
+            Our Vision
+          </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
@@ -201,12 +209,12 @@ export default function Headers1() {
                 </a>
               </div>
               <div className="py-6">
-                <a
+                <link
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </link>
               </div>
             </div>
           </div>
