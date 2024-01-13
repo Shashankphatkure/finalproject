@@ -4,11 +4,11 @@ import { Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/20/solid'
 
 import { useDispatch, useSelector } from "react-redux";
-import { decrement } from "C:/Users/Ayesha/Desktop/finalproject/skillconnect/app/lib/Features/cart/CartSlice.jsx";
+import { decrement } from "./../../app/lib/Features/counter/CounterSlice";
 
 export default function Notification1() {
   const [show, setShow] = useState(true)
-  const count = useSelector((state) => state.cart.value);
+  const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
