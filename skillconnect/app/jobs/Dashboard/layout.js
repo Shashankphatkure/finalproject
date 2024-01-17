@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import DashboardHeaderCourses from '@/components/dashboard-headers/DashboardheadersCourse'
+import DashboardHeaderJobs from '@/components/dashboard-headers/DashboardheadersJobs'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     return (
         <div className={inter.className}>
             
-            <DashboardHeaderCourses/>
+            <DashboardHeaderJobs/>
             {children}
         </div>
     )
