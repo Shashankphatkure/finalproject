@@ -26,11 +26,11 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
+  { name: 'Enrolled Courses', href: '#', current: true },
+  { name: 'Certificates', href: '#', current: false },
+  { name: 'Favourites', href: '#', current: false },
+  { name: 'Recommendations', href: '#', current: false },
+  { name: 'Reminders', href: '#', current: false },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -60,15 +60,8 @@ export default function Example() {
               <>
                 <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
                   <div className="relative flex h-16 items-center justify-between lg:border-b lg:border-indigo-400 lg:border-opacity-25">
-                    <div className="flex items-center px-2 lg:px-0">
-                      <div className="flex-shrink-0">
-                        <img
-                          className="block h-8 w-8"
-                          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=300"
-                          alt="Your Company"
-                        />
-                      </div>
-                      <div className="hidden lg:ml-10 lg:block">
+                    <div>
+                      <div>
                         <div className="flex space-x-4">
                           {navigation.map((item) => (
                             <a
@@ -100,7 +93,7 @@ export default function Example() {
                           <input
                             id="search"
                             className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:text-sm sm:leading-6"
-                            placeholder="Search"
+                            placeholder="Search Courses"
                             type="search"
                             name="search"
                           />
@@ -228,7 +221,7 @@ export default function Example() {
           </Disclosure>
           <header className="py-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold tracking-tight text-white">Dashboard</h1>
+              <h1 className="text-3xl font-bold tracking-tight text-white">Enrolled Courses</h1>
             </div>
           </header>
         </div>
