@@ -22,7 +22,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Coursesearch from '@/components/Searchdashboard/coursesearch'
 
 const navigation = [
-  { name: 'Created Courses', href: '#', current: true },
+  { name: 'Listed Courses', href: '#', current: true },
   { name: 'Revenue', href: '#', current: false },
   { name: 'Sales', href: '#', current: false },
   { name: 'Share', href: '#', current: false },
@@ -119,7 +119,7 @@ export default function DashboardHeaderInstructor({ children }) {
           </Disclosure>
           <header className="py-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold tracking-tight text-white">Enrolled Courses</h1>
+              <h1 className="text-3xl font-bold tracking-tight text-white">Listed Courses</h1>
             </div>
           </header>
         </div>
