@@ -18,6 +18,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import Pagination from '../pagination/pagination'
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -75,7 +76,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function CategoryfilterJobs() {
+export default function CategoryfilterCourse() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
   return (
@@ -306,7 +307,11 @@ export default function CategoryfilterJobs() {
               </form>
 
               {/* Your content */}
-              <div className="lg:col-span-3"><Coursecard /></div>
+              <div className="lg:col-span-3">
+                <Coursecard />
+                <br className="mt-2" />
+                <Pagination />
+              </div>
             </div>
           </section>
         </main>
