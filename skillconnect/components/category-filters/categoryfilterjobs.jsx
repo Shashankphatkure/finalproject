@@ -76,7 +76,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function CategoryfilterCourse() {
+export default function CategoryfilterJobs() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
   return (
