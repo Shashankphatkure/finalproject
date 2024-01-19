@@ -134,7 +134,7 @@ export default function Headers1() {
           <Link href="/jobs" className="text-sm font-semibold leading-6 text-gray-900">
             Jobs
           </Link>
-          <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link href="/internship" className="text-sm font-semibold leading-6 text-gray-900">
             Internships
           </Link>
           <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
