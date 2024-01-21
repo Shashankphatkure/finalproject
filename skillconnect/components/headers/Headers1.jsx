@@ -60,7 +60,7 @@ export default function Headers1() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="relative isolate z-10 bg-white">
+    <header className="isolate z-10 sticky top-0 backdrop-blur-sm bg-white/30">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/">
