@@ -27,11 +27,7 @@ export default function Example() {
         <div className="pt-1.5">
           <h1 className="text-2xl font-bold text-gray-900">{user.name}</h1>
           <p className="text-sm font-medium text-gray-500">
-            Applied for{' '}
-            <a href="#" className="text-gray-900">
-              Front End Developer
-            </a>{' '}
-            on <time dateTime="2020-08-25">August 25, 2020</time>
+            {user.email}
           </p>
         </div>
       </div>
@@ -40,13 +36,13 @@ export default function Example() {
           type="button"
           className="inline-flex items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
         >
-          Disqualify
+          Back to profile
         </button>
         <button
           type="button"
           className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Advance to offer
+          Update
         </button>
       </div>
     </div>
