@@ -13,7 +13,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
 
-export default async function ProfileServer() {
+export async function ProfileServer() {
   const { user } = await getSession();
 }
 
