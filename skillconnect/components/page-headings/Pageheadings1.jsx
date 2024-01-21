@@ -1,4 +1,12 @@
+'use client';
+import { useUser } from '@auth0/nextjs-auth0/client';
+
 export default function Example() {
+  
+  const { user, error, isLoading } = useUser();
+
+  if (isLoading) return;
+  
   return (
     <div className="md:flex md:items-center md:justify-between md:space-x-5">
       <div className="flex items-start space-x-5">
@@ -6,8 +14,8 @@ export default function Example() {
           <div className="relative">
             <img
               className="h-16 w-16 rounded-full"
-              src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-              alt=""
+              src={user.picture}
+              alt={user.name}
             />
             <span className="absolute inset-0 rounded-full shadow-inner" aria-hidden="true" />
           </div>
@@ -17,7 +25,7 @@ export default function Example() {
           but preserve the same layout if the text wraps without making the image jump around.
         */}
         <div className="pt-1.5">
-          <h1 className="text-2xl font-bold text-gray-900">Ricardo Cooper</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{user.name}</h1>
           <p className="text-sm font-medium text-gray-500">
             Applied for{' '}
             <a href="#" className="text-gray-900">

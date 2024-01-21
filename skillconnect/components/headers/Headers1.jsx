@@ -48,8 +48,8 @@ const callsToAction = [
 
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Settings', href: 'auth/userprofile' },
+  { name: 'Sign out', href: 'api/auth/logout' },
 ]
 
 function classNames(...classes) {
