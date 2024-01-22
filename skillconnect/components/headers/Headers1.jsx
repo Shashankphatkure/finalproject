@@ -144,7 +144,7 @@ export default function Headers1() {
             Shop
           </Link>
           <Link href="/aboutus" className="text-sm font-semibold leading-6 text-gray-900">
-            Our Vision
+            About
           </Link>
           <Link href="/blogs" className="text-sm font-semibold leading-6 text-gray-900">
             Blogs
