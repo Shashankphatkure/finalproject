@@ -1,3 +1,6 @@
+import Bookmark from "../buttons/bookmark"
+import BuyButton from "../buttons/buybutton"
+
 async function getData() {
   const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/courses?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
   return res.json()
@@ -50,11 +53,12 @@ export default async function Eventcard() {
                         <p className="font-semibold text-gray-900">
                           <a>
                             <span className="absolute inset-0" />
-                            {item.author}
+                            Hosted by {item.author}
                           </a>
                         </p>
-                        <p className="text-gray-600">Duration : {item.duration}</p>
+                        <p className="text-gray-600">Location : {item.author}</p>
                       </div>
+                      <Bookmark text="Reserve Spot"/>
                     </div>
                   </div>
                 </div>
