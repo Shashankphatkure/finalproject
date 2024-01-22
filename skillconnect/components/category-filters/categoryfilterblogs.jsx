@@ -19,6 +19,7 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import Pagination from '../pagination/pagination'
+import Blogcard from '../Important-cards/Blogcard'
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -76,7 +77,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function CategoryfilterCourse() {
+export default function CategoryfilterBlog() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
   return (
@@ -308,7 +309,7 @@ export default function CategoryfilterCourse() {
 
               {/* Your content */}
               <div className="lg:col-span-3">
-                <Coursecard />
+                <Blogcard />
                 <br className="mt-2" />
                 <Pagination />
               </div>

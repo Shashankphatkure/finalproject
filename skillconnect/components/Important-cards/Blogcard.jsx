@@ -7,7 +7,7 @@ async function getData() {
 
 
 
-export default async function Coursecard() {
+export default async function Blogcard() {
   const data = await getData()
   
   return (
@@ -55,9 +55,9 @@ export default async function Coursecard() {
                             {item.author}
                           </a>
                         </p>
-                        <p className="text-gray-600">Duration : {item.duration}</p>
+                        <p className="text-gray-600">{item.duration}</p>
                       </div>
-                      <Bookmark text="Add to cart"/>
+                      <Bookmark text="Read article"/>
                     </div>
                   </div>
                 </div>
