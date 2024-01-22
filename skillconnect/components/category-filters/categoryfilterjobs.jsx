@@ -1,5 +1,5 @@
 "use client"
-import Coursecard from '@/components/Important-cards/Coursecard'
+import Jobscard from '@/components/Important-cards/Jobscard'
 /*
   This example requires some changes to your config:
   
@@ -308,7 +308,7 @@ export default function CategoryfilterJobs() {
 
               {/* Your content */}
               <div className="lg:col-span-3">
-                <Coursecard />
+                <Jobscard />
                 <br className="mt-2" />
                 <Pagination />
               </div>

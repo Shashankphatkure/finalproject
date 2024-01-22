@@ -5,7 +5,7 @@ async function getData() {
 
 
 
-export default async function Page() {
+export default async function Coursecard() {
   const data = await getData()
   
   return (
