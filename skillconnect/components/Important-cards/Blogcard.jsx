@@ -1,7 +1,7 @@
 import Bookmark from "../buttons/bookmark"
 
 async function getData() {
-  const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/courses?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
+  const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/blogs?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
   return res.json()
 }
 
@@ -19,7 +19,7 @@ export default async function Blogcard() {
               <article key={item.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                   <img
-                    src={item.imageUrl}
+                    src={item.thumbnail}
                     alt=""
                     className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                   />
@@ -55,7 +55,7 @@ export default async function Blogcard() {
                             {item.author}
                           </a>
                         </p>
-                        <p className="text-gray-600">{item.duration}</p>
+                        <p className="text-gray-600">{item.userid}</p>
                       </div>
                       <Bookmark text="Read article"/>
                     </div>
