@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 async function getData() {
   const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/internships?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
   return res.json()
@@ -18,9 +20,11 @@ export default async function Internshipcard() {
                 <div>
                   <div className="group relative max-w-xl">
                     <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                      <a>
+                    <Link href={`/internship/${item.id}`}>
+                      
                         <span className="absolute inset-0" />{item.title}
-                      </a>
+                      
+                    </Link>  
                     </h3>
                     <h3 className="text-md font-semibold leading-6 text-gray-600 group-hover:text-gray-600">
                       <a>
