@@ -1,3 +1,5 @@
+'use client'
+
 import BlogSectionReviews from "@/components/blog-sections/BlogSectionReviews"
 import Datadisplay1 from "@/components/data-displays/data-display1"
 import DescriptionList from "@/components/descriptionlist/page"

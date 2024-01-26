@@ -1,3 +1,4 @@
+'use client'
 import BlogSectionCourse from '@/components/blog-sections/BlogSectionCourse'
 import Categoryfilterinternship from '@/components/category-filters/categoryfilterinternship'
 import React from 'react'
