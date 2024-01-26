@@ -20,11 +20,9 @@ export default async function Internshipcard() {
                 <div>
                   <div className="group relative max-w-xl">
                     <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                    <Link href={`/internship/${item.id}`}>
-                      
-                        <span className="absolute inset-0" />{item.title}
-                      
-                    </Link>  
+                    <a>
+                      <span className="absolute inset-0" />{item.title}
+                    </a>  
                     </h3>
                     <h3 className="text-md font-semibold leading-6 text-gray-600 group-hover:text-gray-600">
                       <a>
