@@ -23,13 +23,9 @@ export async function generateStaticParams() {
   export default async function Page({ params }) {
     const landingcourse = await getData(params.id)
     
-    console.log({landingcourse});
-    
     return (<div>
             {landingcourse.map((item) =>  (
                <div key={item.id}>
-  
-              
               <div>
     <div className="flex min-h-full flex-col">
 
@@ -55,7 +51,6 @@ export async function generateStaticParams() {
       <main>{/* Main area */}
         <BlogSectionReviews />
         </main>
-        <h1>{item.perks[0]}</h1>
       </div>
     </div>
     </div>
