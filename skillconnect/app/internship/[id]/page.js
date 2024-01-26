@@ -6,19 +6,29 @@ import Jobslist from "@/components/lists/jobslist"
 import Pageheadings2 from "@/components/page-headings/pageheadings2"
 
 export async function generateStaticParams() {
+  try {
     const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/internships?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
     const data = await res.json()
    
     return data.map((course) => ({
       id: data.id,
     }))
+  } catch (error) {
+    console.error(error)
+    return []
   }
-  
-  async function getData(id) {
+}
+
+async function getData(id) {
+  try {
     const res = await fetch(`https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/internships?id=eq.${id}&apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY`, { cache: 'no-store' })
     const data = await res.json()
     return data
+  } catch (error) {
+    console.error(error)
+    return null
   }
+}
     
   export default async function Page({ params }) {
     const landingcourse = await getData(params.id)
