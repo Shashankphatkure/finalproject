@@ -1,21 +1,27 @@
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 
-export default function DescriptionList() {
+export default function DescriptionList({responsibilities,who_can_apply,companyid, opening}) {
   return (
     <div className="overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-4 py-6 sm:px-6">
-        <h3 className="text-base font-semibold leading-7 text-gray-900">Applicant Information</h3>
-        <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Personal details and application.</p>
+        <h3 className="text-base font-semibold leading-7 text-gray-900">About the internship</h3>
+        <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Selected intern's day-to-day responsibilities includes:</p>
       </div>
       <div className="border-t border-gray-100">
         <dl className="divide-y divide-gray-100">
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-900">Full name</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+          <div className="px-4 py-6  sm:gap-4 sm:px-6">
+            <div className="text-sm font-medium text-gray-900">
+              {responsibilities.map((item, index) => (
+                <div key={index}>
+                  {index + 1}. {item}
+                </div>
+              ))}
+            </div>
+            
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-900">Application for</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Backend Developer</dd>
+            <dt className="text-sm font-medium text-gray-900">Number of openings</dt>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{opening}</dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-900">Email address</dt>
@@ -26,15 +32,17 @@ export default function DescriptionList() {
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">$120,000</dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-900">About the internship</dt>
+            <dt className="text-sm font-medium text-gray-900">Who can apply</dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-              qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
-              pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+            {who_can_apply.map((item, index) => (
+                <div key={index}>
+                  {index + 1}. {item}
+                </div>
+              ))}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-900">Who can apply</dt>
+            <dt className="text-sm font-medium text-gray-900">About {companyid}</dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
               qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
