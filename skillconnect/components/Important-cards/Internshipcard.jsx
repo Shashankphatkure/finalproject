@@ -16,7 +16,8 @@ export default async function Internshipcard() {
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <div className="mt-4 space-y-10 lg:space-y-10">
             {data.map((item) => (
-              <article key={item.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
+              <Link href={`/course/${item.id}`}>
+                <article key={item.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
                 <div>
                   <div className="group relative max-w-xl">
                     <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -99,6 +100,7 @@ export default async function Internshipcard() {
                   </div>
                 </div>
               </article>
+              </Link>
             ))}
           </div>
         </div>
