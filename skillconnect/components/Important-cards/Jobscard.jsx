@@ -1,5 +1,5 @@
 async function getData() {
-  const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/courses?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
+  const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/jobs?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
   return res.json()
 }
 
@@ -24,7 +24,7 @@ export default async function Jobscard() {
                     </h3>
                     <h3 className="text-md font-semibold leading-6 text-gray-600 group-hover:text-gray-600">
                       <a>
-                        <span className="absolute inset-0" />{item.title}
+                        <span className="absolute inset-0" />{item.companyid}
                       </a>
                     </h3>
                     <p className="mt-3 text-sm leading-6 text-gray-600">{item.description}</p>
@@ -46,7 +46,7 @@ export default async function Jobscard() {
                             Experience
                           </a>
                         </p>
-                        <p className="text-gray-600">{item.duration}</p>
+                        <p className="text-gray-600">{item.experience}</p>
                       </div>
                       <div className="text-sm leading-6">
                         <p className="flex font-semibold text-gray-900">
@@ -55,7 +55,7 @@ export default async function Jobscard() {
                             Salary
                           </a>
                         </p>
-                        <p className="text-gray-600">{item.duration}</p>
+                        <p className="text-gray-600">{item.salary}</p>
                       </div>
                       <div className="text-sm leading-6">
                         <p className="flex font-semibold text-gray-900">
@@ -64,7 +64,7 @@ export default async function Jobscard() {
                             Location
                           </a>
                         </p>
-                        <p className="text-gray-600">{item.duration}</p>
+                        <p className="text-gray-600">{item.location}</p>
                       </div>
                       <div className="text-sm leading-6">
                         <p className="flex font-semibold text-gray-900">
@@ -73,16 +73,18 @@ export default async function Jobscard() {
                             Date added
                           </a>
                         </p>
-                        <p className="text-gray-600">{item.duration}</p>
+                        <p className="text-gray-600">{item.date_added}</p>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-x-3 pt-3 text-xs">
-                    <a
-                      className="relative z-10 rounded-full bg-gray-50 px-3 py-3 font-medium text-gray-600 hover:bg-gray-100"
-                    >
-                      {item.category}
-                    </a>
+                  <div className="flex items-center gap-x-3 pt-3 text-xs" >
+                    
+                      {item.skills.map((skill, index) => (
+                        <span key={index} className="relative z-10 rounded-full bg-gray-50 px-3 py-3 font-medium text-gray-600 hover:bg-gray-100">
+                          {skill}
+                        </span>
+                      ))}
+                    
                   </div>
                 </div>
               </article>
