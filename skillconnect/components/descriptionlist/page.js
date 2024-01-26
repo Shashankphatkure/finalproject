@@ -11,11 +11,7 @@ export default function DescriptionList({responsibilities,who_can_apply,companyi
         <dl className="divide-y divide-gray-100">
           <div className="px-4 py-6  sm:gap-4 sm:px-6">
             <div className="text-sm font-medium text-gray-900">
-              {responsibilities.map((item, index) => (
-                <div key={index}>
-                  {index + 1}. {item}
-                </div>
-              ))}
+              {responsibilities}
             </div>
             
           </div>
@@ -34,11 +30,7 @@ export default function DescriptionList({responsibilities,who_can_apply,companyi
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-900">Who can apply</dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-            {who_can_apply.map((item, index) => (
-                <div key={index}>
-                  {index + 1}. {item}
-                </div>
-              ))}
+            {who_can_apply}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
