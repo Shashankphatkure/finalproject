@@ -48,6 +48,10 @@ export default async function Page({ params }) {
              <p>difficulty : {item.difficulty}</p>
              <div>Course updated date: {item.updateddate}</div>
              <div>ID Number: {item.id}</div>
+
+
+
+             
             
             <br/>
 

@@ -1,6 +1,6 @@
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 
-export default function DescriptionList({description,who_can_apply,companyid, opening}) {
+export default function DescriptionList({description,who_can_apply,companyname,companydescription, opening}) {
   return (
     <div className="overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-4 py-6 sm:px-6">
@@ -34,11 +34,9 @@ export default function DescriptionList({description,who_can_apply,companyid, op
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-900">About {companyid}</dt>
+            <dt className="text-sm font-medium text-gray-900">About {companyname}</dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-              qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
-              pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+            {companydescription}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
