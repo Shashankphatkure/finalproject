@@ -18,7 +18,7 @@ export default async function Coursecard() {
           <div className="mt-4 space-y-10 lg:space-y-10">
             {data.map((item) => (
               <article key={item.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
-                <div><Link href={`/internship/${item.id}`}>
+                
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                   <img
                     src={item.imageUrl}
@@ -63,7 +63,6 @@ export default async function Coursecard() {
                     </div>
                   </div>
                 </div>
-                </Link></div>
               </article>
             ))}
           </div>
