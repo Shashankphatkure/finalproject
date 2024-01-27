@@ -1,17 +1,17 @@
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 
-export default function DescriptionList({responsibilities,who_can_apply,companyid, opening}) {
+export default function DescriptionList({description,who_can_apply,companyid, opening}) {
   return (
     <div className="overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-4 py-6 sm:px-6">
-        <h3 className="text-base font-semibold leading-7 text-gray-900">About the internship</h3>
-        <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Selected intern's day-to-day responsibilities includes:</p>
+        <h3 className="text-base font-semibold leading-7 text-gray-900">About the job</h3>
+        <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Selected employees day-to-day responsibilities includes:</p>
       </div>
       <div className="border-t border-gray-100">
         <dl className="divide-y divide-gray-100">
           <div className="px-4 py-6  sm:gap-4 sm:px-6">
             <div className="text-sm font-medium text-gray-900">
-              {responsibilities}
+              {description}
             </div>
             
           </div>

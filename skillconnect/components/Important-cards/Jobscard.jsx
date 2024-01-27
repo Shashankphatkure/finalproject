@@ -1,3 +1,4 @@
+import Link from "next/link"
 async function getData() {
   const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/jobs?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
   return res.json()
@@ -15,7 +16,7 @@ export default async function Jobscard() {
           <div className="mt-4 space-y-10 lg:space-y-10">
             {data.map((item) => (
               <article key={item.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
-                <div>
+                <div><Link href={`/jobs/${item.id}`}>
                   <div className="group relative max-w-xl">
                     <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                       <a>
@@ -86,6 +87,7 @@ export default async function Jobscard() {
                       ))}
                     
                   </div>
+                  </Link>
                 </div>
               </article>
             ))}
