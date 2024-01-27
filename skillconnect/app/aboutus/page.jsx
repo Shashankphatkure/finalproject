@@ -73,7 +73,7 @@ export default function Aboutus() {
               </h1>
               <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
                 <p className="text-lg leading-8 text-gray-600">
-                Welcome to SKILLCONNECT where innovation meets empowerment.
+                Welcome to skillconnect where innovation meets empowerment.
                 Explore a dynamic ecosystem that effortlessly combines networking, employment prospects, and education. 
                 We personalize your journey by using AI and machine learning to match possibilities to your specific profile. 
                 Please join us in redefining professional progress. For further information, see 'About'.
@@ -184,7 +184,7 @@ export default function Aboutus() {
                   minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.
                 </p>
                 <p className="mt-6 text-base leading-7 text-gray-600">
-                Behind the seamless integration of networking, job possibilities, and education at SKILL-CONNECT is a staff driven by innovation and a desire to help people advance in their careers.
+                Behind the seamless integration of networking, job possibilities, and education at skillconnect is a staff driven by innovation and a desire to help people advance in their careers.
                  Meet the minds defining the future of professional growth, where AI and ML technologies work together to create experiences tailored specifically for you.
                 </p>
               </div>
@@ -231,7 +231,7 @@ export default function Aboutus() {
             Technology Stack.
             </h2>
             <p className="mt-6 text-base leading-7 text-gray-600">
-            At SKILL-CONNECT our platform seamlessly blends AI and machine learning to provide personalized recommendations that adapt to your changing demands. We provide a user-friendly, safe, and scalable experience by using a coherent full-stack development methodology.
+            At skillconnect our platform seamlessly blends AI and machine learning to provide personalized recommendations that adapt to your changing demands. We provide a user-friendly, safe, and scalable experience by using a coherent full-stack development methodology.
              We simplify your professional journey by leveraging progressive web technologies and data-driven insights, making  go-to for a seamless and effective educational and career development experience.
             </p>
           </div>
