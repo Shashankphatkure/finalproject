@@ -69,13 +69,14 @@ export default function Aboutus() {
           <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
               <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto">
-                We’re a passionate group of people working from around the world to build the future of ecommerce.
+                AN INTEGRATED PLATFORM FOR LEARNING, JOBS AND NETWORKING
               </h1>
               <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
                 <p className="text-lg leading-8 text-gray-600">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt
-                  amet fugiat veniam occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui
-                  irure qui lorem cupidatat commodo.
+                Welcome to SKILLCONNECT where innovation meets empowerment.
+                Explore a dynamic ecosystem that effortlessly combines networking, employment prospects, and education. 
+                We personalize your journey by using AI and machine learning to match possibilities to your specific profile. 
+                Please join us in redefining professional progress. For further information, see 'About'.
                 </p>
               </div>
               <img
@@ -120,8 +121,8 @@ export default function Aboutus() {
               Our customers love us
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Aliquip reprehenderit incididunt amet quis fugiat ut velit. Sit occaecat labore proident cillum in nisi
-              adipisicing officia excepteur tempor deserunt.
+            Unified platform blending AI, ML for personalized recommendations. 
+            Our users love seamless integration, adaptability, and skill enhancement. Join us
             </p>
             <div className="mx-auto mt-20 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:max-w-4xl lg:grid-cols-5">
               <img
@@ -183,8 +184,8 @@ export default function Aboutus() {
                   minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.
                 </p>
                 <p className="mt-6 text-base leading-7 text-gray-600">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt
-                  amet fugiat veniam occaecat fugiat. Quasi aperiam sit non sit neque reprehenderit.
+                Behind the seamless integration of networking, job possibilities, and education at SKILL-CONNECT is a staff driven by innovation and a desire to help people advance in their careers.
+                 Meet the minds defining the future of professional growth, where AI and ML technologies work together to create experiences tailored specifically for you.
                 </p>
               </div>
               <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
@@ -227,40 +228,40 @@ export default function Aboutus() {
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              We approach the workplace as something that adds to our lives and adds value to world.
+            Technology Stack.
             </h2>
             <p className="mt-6 text-base leading-7 text-gray-600">
-              Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu.
-              Cras purus nibh cursus sit eu in id. Integer vel nibh.
+            At SKILL-CONNECT our platform seamlessly blends AI and machine learning to provide personalized recommendations that adapt to your changing demands. We provide a user-friendly, safe, and scalable experience by using a coherent full-stack development methodology.
+             We simplify your professional journey by leveraging progressive web technologies and data-driven insights, making  go-to for a seamless and effective educational and career development experience.
             </p>
           </div>
           <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
             <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-50 p-8 sm:w-3/4 sm:max-w-md sm:flex-row-reverse sm:items-end lg:w-72 lg:max-w-none lg:flex-none lg:flex-col lg:items-start">
-              <p className="flex-none text-3xl font-bold tracking-tight text-gray-900">250k</p>
+              <p className="flex-none text-3xl font-bold tracking-tight text-gray-900">WORK WITH US </p>
               <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-                <p className="text-lg font-semibold tracking-tight text-gray-900">Users on the platform</p>
+                <p className="text-lg font-semibold tracking-tight text-gray-900">Join our group</p>
                 <p className="mt-2 text-base leading-7 text-gray-600">
-                  Vel labore deleniti veniam consequuntur sunt nobis.
+                Join our dynamic, fast-paced team dedicated to transforming online education. As an innovator in personalized eLearning, we's looking for creative, motivated individuals who share our passion for making education and professional growth accessible to all.
                 </p>
               </div>
             </div>
             <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-gray-900 p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-44">
-              <p className="flex-none text-3xl font-bold tracking-tight text-white">$8.9 billion</p>
+              <p className="flex-none text-3xl font-bold tracking-tight text-white">READ OUR BLOG</p>
               <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
                 <p className="text-lg font-semibold tracking-tight text-white">
-                  We’re proud that our customers have made over $8 billion in total revenue.
-                </p>
+                 Trending Posts
                 <p className="mt-2 text-base leading-7 text-gray-400">
-                  Eu duis porta aliquam ornare. Elementum eget magna egestas.
+                Stay up-to-date with insights and inspiration from our team of experienced educators. From pedagogical strategies to personal development advice, our blog tackles all aspects of online learning and career growth
+                </p>
                 </p>
               </div>
             </div>
             <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-indigo-600 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
-              <p className="flex-none text-3xl font-bold tracking-tight text-white">401,093</p>
+              <p className="flex-none text-3xl font-bold tracking-tight text-white">SEE REVIEWS OR TESTIMONIALS</p>
               <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-                <p className="text-lg font-semibold tracking-tight text-white">Transactions this year</p>
+                <p className="text-lg font-semibold tracking-tight text-white">Recent Reviews</p>
                 <p className="mt-2 text-base leading-7 text-indigo-200">
-                  Eu duis porta aliquam ornare. Elementum eget magna egestas. Eu duis porta aliquam ornare.
+                Browse our 5-star student ratings and progress updates from just the past month. Filter by course type to read authentic experiences from learners like you..
                 </p>
               </div>
             </div>
