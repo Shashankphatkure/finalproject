@@ -4,7 +4,7 @@ import Runing from './googleai';
 import React, { useEffect, useState } from 'react';
 
 function GoogleAiSummary({ question }) {
-    const [text, setText] = useState('-Searching-');
+    const [text, setText] = useState('-Summarizing-');
 
     const summarize = `Summarize whole content ${question}`
 

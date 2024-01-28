@@ -9,19 +9,19 @@ const page = () => {
     
     <div className="m-10 p-5">
     
-    <GoogleAiCheck question="javascript array and objects" />
+    <GoogleAiCheck question="javascript array and objects" className="text-black" />
 
     <br/>
 
-    <GoogleAiExplain question="javascript array and objects" />
+    <GoogleAiExplain question="javascript array and objects" className="text-black" />
              
     <br/>         
 
-    <GoogleAiSummary question="javascript array and objects" />
+    <GoogleAiSummary question="javascript array and objects" className="text-black" />
          
     <br/> 
 
-    <GoogleAiTranslate question="javascript array and objects" />
+    <GoogleAiTranslate question="javascript array and objects" className="text-black" />
 
     </div>
   )
