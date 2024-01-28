@@ -4,7 +4,7 @@ import Runing from './googleai';
 import React, { useEffect, useState } from 'react';
 
 function GoogleAiExplain({ question }) {
-    const [text, setText] = useState('-Searching-');
+    const [text, setText] = useState('-Explaining-');
 
     const easyexplanation = `Explain in easy way like i was small for ${question}`
 

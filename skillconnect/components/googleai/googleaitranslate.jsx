@@ -4,7 +4,7 @@ import Runing from './googleai';
 import React, { useEffect, useState } from 'react';
 
 function GoogleAiTranslate({ question }) {
-    const [text, setText] = useState('-Searching-');
+    const [text, setText] = useState('-Translating-');
 
     const translate = `Translate to hindi ${question}`
 
