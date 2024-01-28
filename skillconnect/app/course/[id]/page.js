@@ -1,3 +1,8 @@
+import GoogleAiExplain from "@/components/googleai/googleaikidexplanation"
+import GoogleAiCheck from "@/components/googleai/googleairesponse"
+import GoogleAiSummary from "@/components/googleai/googleaisummary"
+import GoogleAiTranslate from "@/components/googleai/googleaitranslate"
+
 export async function generateStaticParams() {
   const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/courses?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
   const data = await res.json()
@@ -29,7 +34,8 @@ export default async function Page({ params }) {
   
   console.log({landingcourse});
   
-  return (<div>
+  return (
+    <div className="m-10 p-5">
           {landingcourse.map((item) =>  (
              <div key={item.id}>
 
@@ -48,6 +54,18 @@ export default async function Page({ params }) {
              <p>difficulty : {item.difficulty}</p>
              <div>Course updated date: {item.updateddate}</div>
              <div>ID Number: {item.id}</div>
+             <br/>
+             <GoogleAiCheck question={item.description} />
+
+             <br/>
+             <GoogleAiExplain question={item.description} />
+
+             <br/>
+             <GoogleAiSummary question={item.description} />
+
+             <br/>
+             <GoogleAiTranslate question={item.description} />
+
 
 
 
