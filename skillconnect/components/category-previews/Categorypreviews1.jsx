@@ -1,21 +1,21 @@
 const categories = [
   {
-    name: 'New Arrivals',
+    name: 'Web Development',
     href: '#',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-01.jpg',
   },
   {
-    name: 'Productivity',
+    name: 'Mobile Development',
     href: '#',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-02.jpg',
   },
   {
-    name: 'Workspace',
+    name: 'Game Development',
     href: '#',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-04.jpg',
   },
   {
-    name: 'Accessories',
+    name: 'Software Testing',
     href: '#',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-05.jpg',
   },
@@ -27,9 +27,9 @@ export default function Categorypreviews1() {
     <div className="bg-white">
       <div className="py-16 sm:py-24 xl:mx-auto xl:max-w-7xl xl:px-8">
         <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">Shop by Category</h2>
-          <a href="#" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
-            Browse all categories
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900">Courses by Category</h2>
+          <a href="https://finalproject-drab.vercel.app/course" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
+            Browse all courses
             <span aria-hidden="true"> &rarr;</span>
           </a>
         </div>

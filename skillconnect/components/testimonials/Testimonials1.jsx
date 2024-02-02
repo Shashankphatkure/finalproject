@@ -1,7 +1,7 @@
 const featuredTestimonial = {
-  body: 'Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit montes vitae auctor libero. Hac condimentum dignissim nibh vulputate ut nunc. Amet nibh orci mi venenatis blandit vel et proin. Non hendrerit in vel ac diam.',
+  body: 'I used the AI interview practice tool to prepare for my recent job interview, and it was a game-changer! The feedback I received was incredibly helpful, and it allowed me to refine my answers and feel more confident going into the interview. I ended up getting the job, and I truly believe the AI practice played a big role in my success.',
   author: {
-    name: 'Brenna Goyette',
+    name: 'Sarah Jones',
     handle: 'brennagoyette',
     imageUrl:
       'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80',
@@ -12,9 +12,9 @@ const testimonials = [
   [
     [
       {
-        body: 'Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam delectus nihil. Aut enim doloremque et ipsam.',
+        body: 'Finding the right courses to upskill myself was always a challenge. This platforms curated course selection made it so easy to discover relevant options in my field. I took a course on cloud computing that was fantastic, and it helped me land a promotion at my company',
         author: {
-          name: 'Leslie Alexander',
+          name: 'David Lee',
           handle: 'lesliealexander',
           imageUrl:
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -24,9 +24,9 @@ const testimonials = [
     ],
     [
       {
-        body: 'Aut reprehenderit voluptatem eum asperiores beatae id. Iure molestiae ipsam ut officia rem nulla blanditiis.',
+        body: 'This platform was my go-to resource for finding internship opportunities. The search filters were super helpful, and I was able to connect with several companies that I was interested in. I landed an internship at my dream company, and Im so grateful for the platforms help!',
         author: {
-          name: 'Lindsay Walton',
+          name: 'Maria Garcia',
           handle: 'lindsaywalton',
           imageUrl:
             'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -38,9 +38,9 @@ const testimonials = [
   [
     [
       {
-        body: 'Voluptas quos itaque ipsam in voluptatem est. Iste eos blanditiis repudiandae. Earum deserunt enim molestiae ipsum perferendis recusandae saepe corrupti.',
+        body: 'We use this platform to post job openings at our startup, and its been a great way to connect with talented candidates. The chatbot feature is amazing for answering applicant questions efficiently, and the AI interview tool helps us screen candidates quickly and effectively.',
         author: {
-          name: 'Tom Cook',
+          name: 'Michael Brown',
           handle: 'tomcook',
           imageUrl:
             'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -50,9 +50,9 @@ const testimonials = [
     ],
     [
       {
-        body: 'Molestias ea earum quos nostrum doloremque sed. Quaerat quasi aut velit incidunt excepturi rerum voluptatem minus harum.',
+        body: 'The platforms blog has been a valuable source of career advice and industry insights for me. The articles are well-written and informative, and they ve helped me stay up-to-date on the latest trends and best practices. I highly recommend this platform to anyone looking to advance their career.',
         author: {
-          name: 'Leonard Krasner',
+          name: 'Emily Rodriguez',
           handle: 'leonardkrasner',
           imageUrl:
             'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',

@@ -35,11 +35,10 @@ export default function BlogSectionJobs() {
         <div className="mx-auto flex max-w-2xl flex-col items-end justify-between gap-16 lg:mx-0 lg:max-w-none lg:flex-row">
           <div className="w-full lg:max-w-lg lg:flex-auto">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              We’re always looking for awesome people to join us
+            Find your dream job
             </h2>
             <p className="mt-6 text-xl leading-8 text-gray-600">
-              Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu.
-              Cras purus nibh cursus sit eu in id.
+            Search for jobs by keyword, location, or company.
             </p>
             <img
               src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1344&h=1104&q=80"
@@ -76,8 +75,8 @@ export default function BlogSectionJobs() {
               ))}
             </ul>
             <div className="mt-8 flex border-t border-gray-100 pt-8">
-              <a href="#" className="text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                View all openings <span aria-hidden="true">&rarr;</span>
+              <a href="https://finalproject-drab.vercel.app/jobs" className="text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                Start your search now! <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
