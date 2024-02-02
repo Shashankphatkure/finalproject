@@ -19,7 +19,7 @@ const categories = [
     href: '#',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-05.jpg',
   },
-  { name: 'Sale', href: '#', imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg' },
+  { name: 'No-Code Development', href: '#', imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg' },
 ]
 
 export default function Categorypreviews1() {

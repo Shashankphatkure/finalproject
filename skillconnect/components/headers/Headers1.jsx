@@ -21,28 +21,32 @@ const user = {
 
 const products = [
   {
-    name: 'Analytics',
-    description: 'Get a better understanding where your traffic is coming from',
-    href: '#',
+    name: 'Skillchat',
+    description: 'Understand things faster by using our AI Chatbot! Skillchat.',
+    href: 'https://skillchat.vercel.app/',
     icon: ChartPieIcon,
   },
   {
-    name: 'Engagement',
-    description: 'Speak directly to your customers with our engagement tool',
-    href: '#',
+    name: 'CoNotes',
+    description: 'Ai Generated Context based Notes taking while learning new things.',
+    href: 'https://skillconotes.vercel.app/',
     icon: CursorArrowRaysIcon,
   },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
+  { 
+    name: 'Skillinterview', 
+    description: 'Get ready for your next interview with our AI Interviewer!', 
+    href: '#', 
+    icon: FingerPrintIcon },
   {
-    name: 'Integrations',
-    description: 'Your customers’ data will be safe and secure',
+    name: 'Skillrecommend',
+    description: 'personalized recommendations for learning path.',
     href: '#',
     icon: SquaresPlusIcon,
   },
 ]
 const callsToAction = [
   { name: 'Subscription', href: '/pricing', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+  { name: 'Contact us', href: '#', icon: PhoneIcon },
   { name: 'View all courses', href: '/course', icon: RectangleGroupIcon },
 ]
 
@@ -83,7 +87,7 @@ export default function Headers1() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover>
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Courses
+              AI Hub
               <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </Popover.Button>
 
@@ -131,6 +135,9 @@ export default function Headers1() {
             </Transition>
           </Popover>
 
+          <Link href="/course" className="text-sm font-semibold leading-6 text-gray-900">
+            Courses
+          </Link>
           <Link href="/jobs" className="text-sm font-semibold leading-6 text-gray-900">
             Jobs
           </Link>
