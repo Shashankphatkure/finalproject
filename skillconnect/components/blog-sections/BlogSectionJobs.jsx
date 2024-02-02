@@ -1,34 +1,12 @@
-const jobOpenings = [
-  {
-    id: 1,
-    role: 'Full-time designer',
-    href: '#',
-    description:
-      'Quos sunt ad dolore ullam qui. Enim et quisquam dicta molestias. Corrupti quo voluptatum eligendi autem labore.',
-    salary: '$75,000 USD',
-    location: 'San Francisco, CA',
-  },
-  {
-    id: 2,
-    role: 'Laravel developer',
-    href: '#',
-    description:
-      'Et veniam et officia dolorum rerum. Et voluptas consequatur magni sapiente amet voluptates dolorum. Ut porro aut eveniet.',
-    salary: '$125,000 USD',
-    location: 'San Francisco, CA',
-  },
-  {
-    id: 3,
-    role: 'React Native developer',
-    href: '#',
-    description:
-      'Veniam ipsam nisi quas architecto eos non voluptatem in nemo. Est occaecati nihil omnis delectus illum est.',
-    salary: '$105,000 USD',
-    location: 'San Francisco, CA',
-  },
-]
+async function getData() {
+  const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/jobs?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
+  const data = await res.json()
+  return data.slice(0, 3)
+}
 
-export default function BlogSectionJobs() {
+export default async function BlogSectionJobs() {
+  const jobOpenings = await getData()
+
   return (
     <div className="bg-white py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -55,14 +33,14 @@ export default function BlogSectionJobs() {
                     <dt className="sr-only">Role</dt>
                     <dd className="w-full flex-none text-lg font-semibold tracking-tight text-gray-900">
                       <a href={opening.href}>
-                        {opening.role}
+                        {opening.title}
                         <span className="absolute inset-0" aria-hidden="true" />
                       </a>
                     </dd>
                     <dt className="sr-only">Description</dt>
                     <dd className="mt-2 w-full flex-none text-base leading-7 text-gray-600">{opening.description}</dd>
                     <dt className="sr-only">Salary</dt>
-                    <dd className="mt-4 text-base font-semibold leading-7 text-gray-900">{opening.salary}</dd>
+                    <dd className="mt-4 text-base font-semibold leading-7 text-gray-900">{opening.salary}$ Per Year</dd>
                     <dt className="sr-only">Location</dt>
                     <dd className="mt-4 flex items-center gap-x-3 text-base leading-7 text-gray-500">
                       <svg viewBox="0 0 2 2" className="h-0.5 w-0.5 flex-none fill-gray-300" aria-hidden="true">

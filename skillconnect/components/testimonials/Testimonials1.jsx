@@ -2,7 +2,7 @@ const featuredTestimonial = {
   body: 'I used the AI interview practice tool to prepare for my recent job interview, and it was a game-changer! The feedback I received was incredibly helpful, and it allowed me to refine my answers and feel more confident going into the interview. I ended up getting the job, and I truly believe the AI practice played a big role in my success.',
   author: {
     name: 'Sarah Jones',
-    handle: 'brennagoyette',
+    handle: 'Marketing Manager',
     imageUrl:
       'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80',
     logoUrl: 'https://tailwindui.com/img/logos/savvycal-logo-gray-900.svg',
@@ -15,7 +15,7 @@ const testimonials = [
         body: 'Finding the right courses to upskill myself was always a challenge. This platforms curated course selection made it so easy to discover relevant options in my field. I took a course on cloud computing that was fantastic, and it helped me land a promotion at my company',
         author: {
           name: 'David Lee',
-          handle: 'lesliealexander',
+          handle: 'Software Engineer',
           imageUrl:
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
@@ -27,7 +27,7 @@ const testimonials = [
         body: 'This platform was my go-to resource for finding internship opportunities. The search filters were super helpful, and I was able to connect with several companies that I was interested in. I landed an internship at my dream company, and Im so grateful for the platforms help!',
         author: {
           name: 'Maria Garcia',
-          handle: 'lindsaywalton',
+          handle: 'Student',
           imageUrl:
             'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
@@ -41,7 +41,7 @@ const testimonials = [
         body: 'We use this platform to post job openings at our startup, and its been a great way to connect with talented candidates. The chatbot feature is amazing for answering applicant questions efficiently, and the AI interview tool helps us screen candidates quickly and effectively.',
         author: {
           name: 'Michael Brown',
-          handle: 'tomcook',
+          handle: 'CEO of Startupify',
           imageUrl:
             'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
@@ -53,7 +53,7 @@ const testimonials = [
         body: 'The platforms blog has been a valuable source of career advice and industry insights for me. The articles are well-written and informative, and they ve helped me stay up-to-date on the latest trends and best practices. I highly recommend this platform to anyone looking to advance their career.',
         author: {
           name: 'Emily Rodriguez',
-          handle: 'leonardkrasner',
+          handle: 'Freelancer',
           imageUrl:
             'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
@@ -115,7 +115,7 @@ export default function Testimonials1() {
               />
               <div className="flex-auto">
                 <div className="font-semibold">{featuredTestimonial.author.name}</div>
-                <div className="text-gray-600">{`@${featuredTestimonial.author.handle}`}</div>
+                <div className="text-gray-600">{`${featuredTestimonial.author.handle}`}</div>
               </div>
               <img className="h-10 w-auto flex-none" src={featuredTestimonial.author.logoUrl} alt="" />
             </figcaption>
@@ -145,7 +145,7 @@ export default function Testimonials1() {
                         <img className="h-10 w-10 rounded-full bg-gray-50" src={testimonial.author.imageUrl} alt="" />
                         <div>
                           <div className="font-semibold">{testimonial.author.name}</div>
-                          <div className="text-gray-600">{`@${testimonial.author.handle}`}</div>
+                          <div className="text-gray-600">{`${testimonial.author.handle}`}</div>
                         </div>
                       </figcaption>
                     </figure>
