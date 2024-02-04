@@ -40,8 +40,8 @@ export default function Heroes2() {
         <div className="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
           <img
             className="aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
-            src="https://img.freepik.com/free-vector/webinar-concept-illustration_114360-4764.jpg?w=1060&t=st=1707049463~exp=1707050063~hmac=e834cf8b074f23bd2e4456468010559aa78688906e29a7b6b05ad82f2ffc6296"
-            alt=""
+            src="images.unsplash.com/photo-1498758536662-35b82cd15e29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2102&q=80"
+            alt="Teach with us"
           />
         </div>
       </div>
