@@ -1,8 +1,42 @@
+'use client'
+
 import React from 'react'
+import { createClient } from '@supabase/supabase-js';
+
+const SUPABASE_URL = 'https://dxdpmgjttftkiqtlgcng.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const Addjobform = () => {
-  
-  return (
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Use Supabase client to insert data
+    const { data, error } = await supabase
+      .from('jobs')
+      .insert([
+        { 
+          title: title.value,
+          description: description.value,
+          location: location.value,
+          experience: experience.value,
+          salary: salary.value,
+          jobtype: jobtype.value,
+          openings: openings.value,
+        },
+      ]);
+
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(data);
+      event.target.reset();
+    }
+  }
+
+
+    return (
     <div class="relative">
 
       <div class="flex flex-col border rounded-xl p-4 sm:p-6 lg:p-10 dark:border-gray-700">
@@ -10,7 +44,7 @@ const Addjobform = () => {
           Fill in the form
         </h2>
 
-        <form method="POST" action="https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/jobs?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY">
+        <form onSubmit={handleSubmit}>
           <div class="mt-6 grid gap-4 lg:gap-6">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
@@ -53,12 +87,7 @@ const Addjobform = () => {
                 <input type="text" name="salary" id="salary" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"></input>
               </div>
 
-              
 
-              <div>
-                <label htmlFor="skills" className="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Skills</label>
-                <textarea name="skills" id="skills" rows="4" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"></textarea>
-              </div>
             </div>
          
 
@@ -71,9 +100,6 @@ const Addjobform = () => {
 
          
           <div class="mt-3 flex">
-            <div class="flex">
-              <input name="remember-me" type="checkbox" class="shrink-0 mt-1.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"></input>
-            </div>
             <div class="ms-3">
               <label for="remember-me" class="text-sm text-gray-600 dark:text-gray-400">By submitting this form I have read and acknowledged the <a class="text-blue-600 decoration-2 hover:underline font-medium" href="#">Privacy policy</a></label>
             </div>
