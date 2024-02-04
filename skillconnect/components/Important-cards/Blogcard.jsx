@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Bookmark from "../buttons/bookmark"
 
 async function getData() {
@@ -17,6 +18,9 @@ export default async function Blogcard() {
           <div className="mt-4 space-y-10 lg:space-y-10">
             {data.map((item) => (
               <article key={item.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
+                
+                <Link href={`/blogs/${item.id}`}>
+                
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                   <img
                     src={item.thumbnail}
@@ -61,6 +65,8 @@ export default async function Blogcard() {
                     </div>
                   </div>
                 </div>
+                </Link>
+                
               </article>
             ))}
           </div>
