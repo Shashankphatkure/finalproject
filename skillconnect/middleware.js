@@ -7,7 +7,6 @@ export const config = {
         "/auth/userprofile",
         "/course/dashboard",
         "/course/instructor/dashboard",
-        "/course/internship/Dashboard",
         "/jobs/Dashboard",
         "/internship/dashboard"
         ]
