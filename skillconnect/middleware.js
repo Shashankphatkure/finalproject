@@ -4,6 +4,7 @@ export default withMiddlewareAuthRequired();
 
 export const config = {
     matcher: [
+        "/auth/userprofile",
         "/course/dashboard",
         "/course/instructor/dashboard",
         "/course/internship/Dashboard",
