@@ -3,17 +3,17 @@ import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/soli
 const cards = [
   {
     name: 'Sales',
-    description: 'Consectetur vel non. Rerum ut consequatur nobis unde. Enim est quo corrupti consequatur.',
+    description: 'Explore our sales section for exclusive deals and unbeatable discounts. Elevate your  experience with our curated selection of high-quality , ensuring satisfaction service .',
     icon: PhoneIcon,
   },
   {
     name: 'Technical Support',
-    description: 'Quod possimus sit modi rerum exercitationem quaerat atque tenetur ullam.',
+    description: 'Our technical support section provides 24/7 assistance for seamless troubleshooting. Count on our expert team to swiftly resolve issues, ensuring a smooth and reliable user experience.',
     icon: LifebuoyIcon,
   },
   {
-    name: 'Media Inquiries',
-    description: 'Ratione et porro eligendi est sed ratione rerum itaque. Placeat accusantium impedit eum odit.',
+    name: 'Inquiries',
+    description: 'Explore our inquiries section for prompt responses. Whether you have questions, feedback, or partnership proposals, we value your input and are ready to assist you..',
     icon: NewspaperIcon,
   },
 ]
@@ -48,8 +48,7 @@ export default function SectionHeader1() {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Support center</h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-            fugiat veniam occaecat fugiat aliqua.
+            Our 24/7 support center offers instant, user-friendly assistance. Our expert team ensures swift issue resolution for a trouble-free customer experience
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
