@@ -6,6 +6,7 @@ import Cta2 from '@/components/CTA Sections/cta2'
 import SectionHeader1 from '@/components/headers/section-header1'
 import Heroes3 from '@/components/heroes/Heroes3'
 import Addjobform from './addjobform'
+import Addinternshipform from './addinternshipform'
 
 const page = () => {
   return (
@@ -116,7 +117,7 @@ const page = () => {
     </div>
 
 
-    <Addjobform />
+    <Addinternshipform />
    
   </div>
   
