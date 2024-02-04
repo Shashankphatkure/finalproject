@@ -51,7 +51,7 @@ const callsToAction = [
 ]
 
 const userNavigation = [
-  { name: 'Dynamic Profile', href: '#' },
+  { name: 'Dynamic Profile', href: 'construction' },
   { name: 'My Settings', href: 'auth/userprofile' },
   { name: 'Course Section', href: 'course/dashboard' },
   { name: 'Jobs Section', href: 'jobs/Dashboard' },
