@@ -28,6 +28,7 @@ const Addjobform = () => {
           jobtype: jobtype.value,
           openings: openings.value,
           skills: skillsArray,
+          date_added: new Date().toISOString(),
         },
       ]);
 
