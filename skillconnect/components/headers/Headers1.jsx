@@ -51,8 +51,11 @@ const callsToAction = [
 ]
 
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: 'auth/userprofile' },
+  { name: 'My Settings', href: 'auth/userprofile' },
+  { name: 'Course Section', href: 'course/dashboard' },
+  { name: 'Jobs Section', href: 'jobs/Dashboard' },
+  { name: 'Internship Section', href: 'internship/Dashboard' },
+  { name: 'Blogs Section', href: 'blogs/Dashboard' },
   { name: 'Sign out', href: 'api/auth/logout' },
 ]
 
