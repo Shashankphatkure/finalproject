@@ -28,11 +28,7 @@ export default async function Blogcard() {
                     className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                   />
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
-                  
-                  </Link>
-                
-                
+                </div>
                 <div>
                   <div className="flex items-center gap-x-4 text-xs">
                     <time dateTime={item.updateddate} className="text-gray-500">
@@ -69,7 +65,7 @@ export default async function Blogcard() {
                     </div>
                   </div>
                 </div>
-          
+                </Link>
                 
               </article>
             ))}
