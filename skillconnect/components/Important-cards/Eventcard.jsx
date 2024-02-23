@@ -1,12 +1,31 @@
 import Bookmark from "../buttons/bookmark"
-import BuyButton from "../buttons/buybutton"
+
+import { createClient } from '@supabase/supabase-js'
+
+// Initialize Supabase client
+const supabaseUrl = 'https://dxdpmgjttftkiqtlgcng.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY'
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 async function getData() {
-  const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
-  return res.json()
+  // Fetch data from the events table
+  const { data, error } = await supabase
+    .from('events')
+    .select(`
+      *,
+      author:users (
+        username,
+        imageUrlAuthor
+      )
+    `)
+  
+  if (error) {
+    console.error('Error fetching data:', error)
+    return []
+  }
+
+  return data
 }
-
-
 
 export default async function Eventcard() {
   const data = await getData()
@@ -47,20 +66,20 @@ export default async function Eventcard() {
                     <p className="mt-5 text-sm leading-6 text-gray-600">{item.description}</p>
                   </div>
                   <div className="mt-6 flex border-t border-gray-900/5 pt-6">
-                    <div className="relative flex items-center gap-x-4">
-                      <img src={item.imageUrlAuthor} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
-                      <div className="text-sm leading-6">
-                        <p className="font-semibold text-gray-900">
-                          <a>
-                            <span className="absolute inset-0" />
-                            Hosted by {item.authorid}
-                          </a>
-                        </p>
-                        <p className="text-gray-600">Location : {item.location}</p>
-                      </div>
-                      <Bookmark text="Reserve Spot"/>
-                    </div>
-                  </div>
+  <div className="relative flex items-center gap-x-4">
+    <img src={item.author.imageUrlAuthor || 'default-author-image-url'} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
+    <div className="text-sm leading-6">
+      <p className="font-semibold text-gray-900">
+        <a>
+          <span className="absolute inset-0" />
+          Hosted by {item.author.username}
+        </a>
+      </p>
+      <p className="text-gray-600">Location : {item.location || 'Not specified'}</p>
+    </div>
+    <Bookmark text="Reserve Spot"/>
+  </div>
+</div>
                 </div>
               </article>
             ))}
