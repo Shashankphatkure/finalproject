@@ -1,5 +1,5 @@
+import Link from "next/link"
 import Bookmark from "../buttons/bookmark"
-
 import { createClient } from '@supabase/supabase-js'
 
 // Initialize Supabase client
@@ -52,6 +52,8 @@ export default async function Coursecard() {
             {data.map((item) => (
               <article key={item.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
                 
+                <Link href={`/course/${item.id}`}>
+
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                   <img
                     src={item.imageUrl}
@@ -59,7 +61,8 @@ export default async function Coursecard() {
                     className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                   />
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                </div>
+                  </div>
+                  </Link>
                 <div>
                   <div className="flex items-center gap-x-4 text-xs">
                   {parseFloat(item.duration).toFixed(1)} Hours 
