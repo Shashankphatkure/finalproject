@@ -1,29 +1,39 @@
-
-export async function generateStaticParams() {
-  const res = await fetch('https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/blogs?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY', { cache: 'no-store' })
-  const data = await res.json()
- 
-  return data.map((course) => ({
-    id: data.id,
-  }))
-}
+import supabase from '../../../utils/supabaseClient'; // Adjust the import path as necessary
 
 async function getData(id) {
-  const res = await fetch(`https://dxdpmgjttftkiqtlgcng.supabase.co/rest/v1/blogs?id=eq.${id}&apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY`)
-  const data = await res.json()
-  return data
+  // Fetch blog data along with the user's information using a single query
+  const { data: blogs, error } = await supabase
+    .from('blogs')
+    .select(`
+      *,
+      users: author (
+        username,
+        imageUrlAuthor,
+        role
+      )
+    `)
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error('Error fetching blog data:', error);
+    return null;
+  }
+
+  return blogs;
 }
+
   
 export default async function Page({ params }) {
-  const landingcourse = await getData(params.id)
+  const item = await getData(params.id)
   
-  console.log({landingcourse});
+  console.log({item});
   
   return (
   <>
   <div>
-          {landingcourse.map((item) =>  (
-             <div key={item.id}>
+          
+             <div>
 
             <div class="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/squared-bg-element.svg')] before:bg-no-repeat before:bg-top before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2 dark:before:bg-[url('https://preline.co/assets/svg/examples-dark/squared-bg-element.svg')]">
   <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
@@ -167,15 +177,15 @@ export default async function Page({ params }) {
         
         <div class="group flex items-center gap-x-3 border-b border-gray-200 pb-8 mb-8 dark:border-gray-700">
           <a class="block flex-shrink-0" href="#">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Image Description"></img>
+            <img class="h-10 w-10 rounded-full" src={item.users.imageUrlAuthor} alt={item.users.username}></img>
           </a>
 
           <a class="group grow block" href="">
             <h5 class="group-hover:text-gray-600 text-sm font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
-              Leyla Ludic
+            {item.users.username}
             </h5>
             <p class="text-sm text-gray-500">
-              UI/UX enthusiast
+            {item.users.role}
             </p>
           </a>
 
@@ -244,7 +254,7 @@ export default async function Page({ params }) {
             <br/>
 
           </div>
-  ))}</div>
+  </div>
   
   
 
