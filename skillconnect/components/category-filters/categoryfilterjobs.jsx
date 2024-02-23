@@ -1,3 +1,5 @@
+"use client"
+
 import Jobscard from '@/components/Important-cards/Jobscard'
 
 import { Fragment, useState } from 'react'

@@ -1,3 +1,5 @@
+"use client"
+
 import Coursecard from '@/components/Important-cards/Coursecard'
 
 import { Fragment, useState } from 'react'
