@@ -10,23 +10,7 @@ import BlogSectionCourse from '@/components/blog-sections/BlogSectionCourse';
 import DashboardHeaderInstructor from '@/components/dashboard-headers/DashboardheadersInstructor';
 import Teamsections from '@/components/team-sections/team-sections1';
 
-const product = {
-  name: 'Everyday Ruck Snack',
-  href: '#',
-  price: '$220',
-  description:
-    "Don't compromise on snack-carrying capacity with this lightweight and spacious bag. The drawstring top keeps all your favorite chips, crisps, fries, biscuits, crackers, and cookies secure.",
-  imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-featured-product-shot.jpg',
-  imageAlt: 'Model wearing light green backpack with black canvas straps and front zipper pouch.',
-  breadcrumbs: [
-    { id: 1, name: 'Travel', href: '#' },
-    { id: 2, name: 'Bags', href: '#' },
-  ],
-  sizes: [
-    { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
-    { name: '20L', description: 'Enough room for a serious amount of snacks.' },
-  ],
-}
+
 const reviews = { average: 4, totalCount: 1624 }
 
 function classNames(...classes) {
@@ -46,6 +30,12 @@ async function getData(id) {
       role,
       linkedin,
       twitter
+    ),
+    sections: sections (
+      *,
+      lectures: lectures (
+        *
+      )
     )
   `)
     .eq('id', id)
@@ -62,10 +52,12 @@ async function getData(id) {
 
   
 export default async function Page({ params }) {
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0])
   const item = await getData(params.id)
   
   console.log({ item });
+
+  const totalSections = item.sections?.length ||  0;
+  const totalLectures = item.sections?.reduce((total, section) => total + (section.lectures?.length ||  0),  0) ||  0;
 
   
   return (
@@ -140,16 +132,40 @@ export default async function Page({ params }) {
    ))}
 </div>
 
-          </section>
+            </section>
+            
+
+
+
         </div>
 
         {/* Product image */}
         <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0">
           <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg">
-            <img src={item.imageUrl} alt={product.imageAlt} className="h-full w-full object-cover object-center" />
+            <img src={item.imageUrl} alt={item.description} className="h-full w-full object-cover object-center" />
             </div>
             <p className='mt-2 text-center'>Preview this course ▶️</p>
-        </div>
+
+            {/* Sections and Lectures */}
+            <div className="mt-14 text-xl">Course content</div>
+            <div className="">{totalSections} sections • {totalLectures} lectures</div>
+            <br></br>
+            <div className="mt-2">
+              {item.sections?.map((section) => (
+                <div key={section.id} className="mb-4">
+                  <h2 className="text-xl font-bold">{section.title}</h2>
+                  {section.lectures?.map((lecture) => (
+                    <div key={lecture.id} className="mt-2">
+                      <h3 className="text-lg">{lecture.title}</h3>
+                      <p className="text-sm text-gray-500">{lecture.description}</p>
+                    </div>
+                   ))}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          
 
         {/* Product form */}
         <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
@@ -203,8 +219,8 @@ export default async function Page({ params }) {
    ))}
 </div>
 
-<div className="mt-4 space-y-6">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Description</h1>
+<div className="mt-6 space-y-6">
+              <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">Description</h1>
             </div>
             <div className="mt-4 space-y-6">
               <div className="text-base text-gray-500" dangerouslySetInnerHTML={{ __html: item.description }} />
