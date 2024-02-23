@@ -44,10 +44,44 @@ const products = [
     icon: SquaresPlusIcon,
   },
 ]
+
+const myjobs = [
+  {
+    name: 'Jobs',
+    description: 'Find job opportunities from top companies across industries.',
+    href: '/jobs',
+    icon: ChartPieIcon,
+  },
+  {
+    name: 'Companies',
+    description: 'Learn about leading companies, their culture, and projects.',
+    href: '/companies',
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: 'Internships',
+    description: 'Prepare for interviews with our AI Interviewer.',
+    href: '/internship',
+    icon: FingerPrintIcon,
+  },
+  {
+    name: 'Resume Builder',
+    description: 'Create a tailored resume for your career goals.',
+    href: '#',
+    icon: SquaresPlusIcon,
+  },  
+]
+
 const callsToAction = [
   { name: 'Subscription', href: '/pricing', icon: PlayCircleIcon },
   { name: 'Contact us', href: '#', icon: PhoneIcon },
   { name: 'View all courses', href: '/course', icon: RectangleGroupIcon },
+]
+
+const callsToAction2 = [
+  { name: 'Subscription', href: '/pricing', icon: PlayCircleIcon },
+  { name: 'Contact us', href: '#', icon: PhoneIcon },
+  { name: 'View all Jobs', href: '/jobs', icon: RectangleGroupIcon },
 ]
 
 const userNavigation = [
@@ -139,14 +173,58 @@ export default function Headers1() {
             </Transition>
           </Popover>
 
+          <Popover>
+            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+              Jobs & Internships
+              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+            </Popover.Button>
+
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="opacity-0 -translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 -translate-y-1"
+            >
+              <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-900/5">
+                <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                  {myjobs.map((item) => (
+                    <div key={item.name} className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                      </div>
+                      <a href={item.href} className="mt-6 block font-semibold text-gray-900">
+                        {item.name}
+                        <span className="absolute inset-0" />
+                      </a>
+                      <p className="mt-1 text-gray-600">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="bg-gray-50">
+                  <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5">
+                      {callsToAction2.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                        >
+                          <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                          {item.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Popover.Panel>
+            </Transition>
+          </Popover>
+
           <Link href="/course" className="text-sm font-semibold leading-6 text-gray-900">
             Courses
-          </Link>
-          <Link href="/jobs" className="text-sm font-semibold leading-6 text-gray-900">
-            Jobs
-          </Link>
-          <Link href="/internship" className="text-sm font-semibold leading-6 text-gray-900">
-            Internships
           </Link>
           <Link href="/events" className="text-sm font-semibold leading-6 text-gray-900">
             Events

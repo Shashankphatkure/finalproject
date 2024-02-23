@@ -11,13 +11,12 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
 async function getData() {
   // Fetch data from the blogs table
   const { data, error } = await supabase
-    .from('blogs')
+    .from('events')
     .select(`
     *,
-    user:users (
+    author:users (
       username,
-      imageUrlAuthor,
-      role
+      imageUrlAuthor
     )
   `)
   .limit(3)
@@ -30,15 +29,15 @@ async function getData() {
   return data
 }
 
-export default async function BlogSectionBlogs() {
+export default async function BlogSectionEvents() {
   const data = await getData()
   return (
     <div className="bg-white py-8 sm:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Unlock Your Potential</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Experience the Future at Our Events</h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-          Dive into insightful articles, tutorials, and guides designed to elevate your skills
+          Join us for a series of exciting events designed to inspire, educate, and connect you with industry leaders and innovators.
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -54,8 +53,8 @@ export default async function BlogSectionBlogs() {
               </div>
               <div className="max-w-xl">
                 <div className="mt-8 flex items-center gap-x-4 text-xs">
-                  <time dateTime={post.updateddate} className="text-gray-500">
-                    {post.updateddate}
+                  <time dateTime={post.date_and_time} className="text-gray-500">
+                    {post.date_and_time}
                   </time>
                   <a
                     href={post.category.href}
@@ -74,15 +73,15 @@ export default async function BlogSectionBlogs() {
                   <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
                 </div>
                 <div className="relative mt-8 flex items-center gap-x-4">
-                  <img src={post.user.imageUrlAuthor} alt="" className="h-10 w-10 rounded-full bg-gray-100" />
+                  <img src={post.author.imageUrlAuthor} alt="" className="h-10 w-10 rounded-full bg-gray-100" />
                   <div className="text-sm leading-6">
                     <p className="font-semibold text-gray-900">
                       <a href={post.author.href}>
                         <span className="absolute inset-0" />
-                        {post.user.username}
+                        {post.author.username}
                       </a>
                     </p>
-                    <p className="text-gray-600">{post.user.role}</p>
+                    <p className="text-gray-600">{post.location}</p>
                   </div>
                 </div>
               </div>

@@ -1,12 +1,12 @@
 'use client'
-import BlogSectionCourse from '@/components/blog-sections/BlogSectionCourse'
+import BlogSectionInternships from '@/components/blog-sections/BlogSectionInternships'
 import Categoryfilterinternship from '@/components/category-filters/categoryfilterinternship'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <BlogSectionCourse />
+      <BlogSectionInternships />
       <Categoryfilterinternship/>
     </div>
   )

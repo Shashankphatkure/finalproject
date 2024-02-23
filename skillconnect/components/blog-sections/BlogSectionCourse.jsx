@@ -11,12 +11,12 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
 async function getData() {
   // Fetch data from the blogs table
   const { data, error } = await supabase
-    .from('blogs')
+    .from('courses')
     .select(`
     *,
-    user:users (
-      username,
-      imageUrlAuthor,
+    instructor:instructors (
+      instructorname,
+      instructorimage,
       role
     )
   `)
@@ -36,9 +36,9 @@ export default async function BlogSectionCourse() {
     <div className="bg-white py-8 sm:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Unlock Your Potential</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Upskill and reskill</h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-          Dive into insightful articles, tutorials, and guides designed to elevate your skills
+          Learn new skills from top experts in a variety of fields.
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -46,7 +46,7 @@ export default async function BlogSectionCourse() {
             <article key={post.id} className="flex flex-col items-start justify-between">
               <div className="relative w-full">
                 <img
-                  src={post.thumbnail}
+                  src={post.imageUrl}
                   alt=""
                   className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                 />
@@ -54,9 +54,7 @@ export default async function BlogSectionCourse() {
               </div>
               <div className="max-w-xl">
                 <div className="mt-8 flex items-center gap-x-4 text-xs">
-                  <time dateTime={post.updateddate} className="text-gray-500">
-                    {post.updateddate}
-                  </time>
+                {parseFloat(post.duration).toFixed(1)} Hours
                   <a
                     href={post.category.href}
                     className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
@@ -74,15 +72,15 @@ export default async function BlogSectionCourse() {
                   <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
                 </div>
                 <div className="relative mt-8 flex items-center gap-x-4">
-                  <img src={post.user.imageUrlAuthor} alt="" className="h-10 w-10 rounded-full bg-gray-100" />
+                  <img src={post.instructor.instructorimage} alt="" className="h-10 w-10 rounded-full bg-gray-100" />
                   <div className="text-sm leading-6">
                     <p className="font-semibold text-gray-900">
-                      <a href={post.author.href}>
+                      <a href={post.instructor.instructorimage}>
                         <span className="absolute inset-0" />
-                        {post.user.username}
+                        {post.instructor.instructorname}
                       </a>
                     </p>
-                    <p className="text-gray-600">{post.user.role}</p>
+                    <p className="text-gray-600">{post.instructor.role}</p>
                   </div>
                 </div>
               </div>

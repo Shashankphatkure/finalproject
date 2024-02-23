@@ -1,11 +1,11 @@
-import BlogSectionCourse from '@/components/blog-sections/BlogSectionCourse'
+import BlogSectionEvents from '@/components/blog-sections/BlogSectionEvents'
 import CategoryfilterEvent from '@/components/category-filters/categoryfilterevent'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <BlogSectionCourse />
+      <BlogSectionEvents />
       <CategoryfilterEvent/>
     </div>
   )

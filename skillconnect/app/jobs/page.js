@@ -1,13 +1,11 @@
-import Coursecard from '@/components/Important-cards/Coursecard'
-import BlogSectionCourse from '@/components/blog-sections/BlogSectionCourse'
-import CategoryfilterCourse from '@/components/category-filters/categoryfiltercourse'
+import BlogSectionJobs from '@/components/blog-sections/BlogSectionJobs'
 import CategoryfilterJobs from '@/components/category-filters/categoryfilterjobs'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <BlogSectionCourse />
+      <BlogSectionJobs />
       <CategoryfilterJobs/>
     </div>
   )
