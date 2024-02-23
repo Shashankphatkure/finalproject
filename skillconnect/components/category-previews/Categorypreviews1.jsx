@@ -1,25 +1,29 @@
 const categories = [
   {
-    name: 'Web Development',
+    name: 'Design',
     href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-01.jpg',
+    imageSrc: 'https://s.udemycdn.com/home/top-categories/lohp-category-design-v2.jpg',
   },
   {
-    name: 'Mobile Development',
+    name: 'Development',
     href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-02.jpg',
+    imageSrc: 'https://s.udemycdn.com/home/top-categories/lohp-category-development-v2.jpg',
   },
   {
-    name: 'Game Development',
+    name: 'Marketing',
     href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-04.jpg',
+    imageSrc: 'https://s.udemycdn.com/home/top-categories/lohp-category-marketing-v2.jpg',
   },
   {
-    name: 'Software Testing',
+    name: 'Business',
     href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-05.jpg',
+    imageSrc: 'https://s.udemycdn.com/home/top-categories/lohp-category-business-v2.jpg',
   },
-  { name: 'No-Code Development', href: '#', imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg' },
+  {
+    name: 'IT and Software',
+    href: '#',
+    imageSrc: 'https://s.udemycdn.com/home/top-categories/lohp-category-it-and-software-v2.jpg',
+  },
 ]
 
 export default function Categorypreviews1() {
