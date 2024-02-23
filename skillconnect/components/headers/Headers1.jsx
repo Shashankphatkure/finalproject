@@ -85,14 +85,14 @@ const callsToAction2 = [
 ]
 
 const userNavigation = [
-  { name: 'Dynamic Profile', href: 'https://finalproject-drab.vercel.app/construction' },
-  { name: 'My Settings', href: 'https://finalproject-drab.vercel.app/auth/userprofile' },
-  { name: 'Course Section', href: 'https://finalproject-drab.vercel.app/course/dashboard' },
-  { name: 'Jobs Section', href: 'https://finalproject-drab.vercel.app/jobs/Dashboard' },
-  { name: 'Internship Section', href: 'https://finalproject-drab.vercel.app/internship/Dashboard' },
-  { name: 'Blogs Section', href: 'https://finalproject-drab.vercel.app/blogs/Dashboard' },
-  { name: 'Sign out', href: 'https://finalproject-drab.vercel.app/api/auth/logout' },
-]
+  { name: 'Dynamic Profile', href: '/construction' },
+  { name: 'My Settings', href: '/auth/userprofile' },
+  { name: 'Course Section', href: '/course/dashboard' },
+  { name: 'Jobs Section', href: '/jobs/Dashboard' },
+  { name: 'Internship Section', href: '/internship/Dashboard' },
+  { name: 'Blogs Section', href: '/blogs/Dashboard' },
+  { name: 'Sign out', href: '/api/auth/logout' },
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
