@@ -109,7 +109,7 @@ const page = () => {
     </div>
 
 
-    <Addinternshipform />
+    {/* <Addinternshipform /> */}
    
   </div>
   
