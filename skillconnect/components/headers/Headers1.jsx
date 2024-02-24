@@ -7,10 +7,14 @@ import {
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
+  HeartIcon,
+  MagnifyingGlassIcon,
+  ShoppingBagIcon,
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
+import SitewideSearchbar from '../command-palette/withfooter'; // Adjust the path as necessary
 
 const user = {
   name: 'Tom Cook',
@@ -127,6 +131,7 @@ function classNames(...classes) {
 
 export default function Headers1() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
 
   return (
     <header className="isolate z-10 sticky top-0 backdrop-blur-sm bg-white/30">
@@ -314,9 +319,20 @@ export default function Headers1() {
           </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Dark Mode <span aria-hidden="true">&rarr;</span>
+          <div className="ml-2 p-2 text-gray-400 hover:text-gray-500" onClick={() => setIsSearchbarOpen(!isSearchbarOpen)}>
+                    <span className="sr-only">Search</span>
+                    <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
+          </div>
+          {isSearchbarOpen && <SitewideSearchbar />}
+          <a href="#" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
+                    <span className="sr-only">Search</span>
+                    <HeartIcon className="h-6 w-6" aria-hidden="true" />
+                  </a>
+          <a href="/cart" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
+                    <span className="sr-only">Search</span>
+                    <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
           </a>
+          
         </div>
         <div>
                       <div className="flex items-center">

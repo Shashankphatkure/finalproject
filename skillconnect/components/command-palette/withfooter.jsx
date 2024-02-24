@@ -1,62 +1,43 @@
-// MAKE THIS COMPONENT TRANSPARENT IN FUTURE
-
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-import { Fragment, useState } from 'react'
-import { Combobox, Dialog, Transition } from '@headlessui/react'
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import { ExclamationTriangleIcon, FolderIcon, LifebuoyIcon } from '@heroicons/react/24/outline'
-
-const projects = [
-  { id: 1, name: 'Workflow Inc. / Website Redesign', category: 'Projects', url: '#' },
-  // More projects...
-]
-
-const users = [
-  {
-    id: 1,
-    name: 'Leslie Alexander',
-    url: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  // More users...
-]
+import { Fragment, useState, useEffect } from 'react';
+import { Combobox, Dialog, Transition } from '@headlessui/react';
+import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
+import { ExclamationTriangleIcon, FolderIcon, LifebuoyIcon } from '@heroicons/react/24/outline';
+import supabase  from '../../utils/supabaseClient';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
-  const [open, setOpen] = useState(true)
-  const [rawQuery, setRawQuery] = useState('')
-  const query = rawQuery.toLowerCase().replace(/^[#>]/, '')
+export default function SitewideSearchbar() {
+  const [open, setOpen] = useState(true);
+  const [rawQuery, setRawQuery] = useState('');
+  const query = rawQuery.toLowerCase().replace(/^[#>]/, '');
 
-  const filteredProjects =
-    rawQuery === '#'
-      ? projects
-      : query === '' || rawQuery.startsWith('>')
-      ? []
-      : projects.filter((project) => project.name.toLowerCase().includes(query))
+  const [courses, setCourses] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
-  const filteredUsers =
-    rawQuery === '>'
-      ? users
-      : query === '' || rawQuery.startsWith('#')
-      ? []
-      : users.filter((user) => user.name.toLowerCase().includes(query))
+  async function fetchCourses() {
+    let { data, error } = await supabase
+      .from('courses')
+      .select('*');
+
+    if (error) console.error('Error fetching courses:', error);
+    else setCourses(data);
+  }
+
+  async function fetchJobs() {
+    let { data, error } = await supabase
+      .from('jobs')
+      .select('*');
+
+    if (error) console.error('Error fetching jobs:', error);
+    else setJobs(data);
+  }
+
+  useEffect(() => {
+    fetchCourses();
+    fetchJobs();
+  }, []);
 
   return (
     <Transition.Root show={open} as={Fragment} afterLeave={() => setRawQuery('')} appear>
@@ -97,19 +78,19 @@ export default function Example() {
                   />
                 </div>
 
-                {(filteredProjects.length > 0 || filteredUsers.length > 0) && (
+                {(courses.length >  0 || jobs.length >  0) && (
                   <Combobox.Options
                     static
                     className="max-h-80 scroll-py-10 scroll-py-10 scroll-pb-2 scroll-pb-2 space-y-4 overflow-y-auto p-4 pb-2"
                   >
-                    {filteredProjects.length > 0 && (
+                    {courses.length >  0 && (
                       <li>
-                        <h2 className="text-xs font-semibold text-gray-900">Projects</h2>
+                        <h2 className="text-xs font-semibold text-gray-900">Courses</h2>
                         <ul className="-mx-4 mt-2 text-sm text-gray-700">
-                          {filteredProjects.map((project) => (
+                          {courses.map((course) => (
                             <Combobox.Option
-                              key={project.id}
-                              value={project}
+                              key={course.id}
+                              value={course}
                               className={({ active }) =>
                                 classNames(
                                   'flex cursor-default select-none items-center px-4 py-2',
@@ -117,28 +98,20 @@ export default function Example() {
                                 )
                               }
                             >
-                              {({ active }) => (
-                                <>
-                                  <FolderIcon
-                                    className={classNames('h-6 w-6 flex-none', active ? 'text-white' : 'text-gray-400')}
-                                    aria-hidden="true"
-                                  />
-                                  <span className="ml-3 flex-auto truncate">{project.name}</span>
-                                </>
-                              )}
+                              <span className="ml-3 flex-auto truncate">{course.title}</span>
                             </Combobox.Option>
                           ))}
                         </ul>
                       </li>
                     )}
-                    {filteredUsers.length > 0 && (
+                    {jobs.length >  0 && (
                       <li>
-                        <h2 className="text-xs font-semibold text-gray-900">Users</h2>
+                        <h2 className="text-xs font-semibold text-gray-900">Jobs</h2>
                         <ul className="-mx-4 mt-2 text-sm text-gray-700">
-                          {filteredUsers.map((user) => (
+                          {jobs.map((job) => (
                             <Combobox.Option
-                              key={user.id}
-                              value={user}
+                              key={job.id}
+                              value={job}
                               className={({ active }) =>
                                 classNames(
                                   'flex cursor-default select-none items-center px-4 py-2',
@@ -146,8 +119,7 @@ export default function Example() {
                                 )
                               }
                             >
-                              <img src={user.imageUrl} alt="" className="h-6 w-6 flex-none rounded-full" />
-                              <span className="ml-3 flex-auto truncate">{user.name}</span>
+                              <span className="ml-3 flex-auto truncate">{job.title}</span>
                             </Combobox.Option>
                           ))}
                         </ul>
@@ -161,13 +133,12 @@ export default function Example() {
                     <LifebuoyIcon className="mx-auto h-6 w-6 text-gray-400" aria-hidden="true" />
                     <p className="mt-4 font-semibold text-gray-900">Help with searching</p>
                     <p className="mt-2 text-gray-500">
-                      Use this tool to quickly search for users and projects across our entire platform. You can also
-                      use the search modifiers found in the footer below to limit the results to just users or projects.
+                      Use this tool to quickly search for courses and jobs across our entire platform.
                     </p>
                   </div>
                 )}
 
-                {query !== '' && rawQuery !== '?' && filteredProjects.length === 0 && filteredUsers.length === 0 && (
+                {query !== '' && rawQuery !== '?' && courses.length ===  0 && jobs.length ===  0 && (
                   <div className="px-6 py-14 text-center text-sm sm:px-14">
                     <ExclamationTriangleIcon className="mx-auto h-6 w-6 text-gray-400" aria-hidden="true" />
                     <p className="mt-4 font-semibold text-gray-900">No results found</p>
@@ -185,8 +156,7 @@ export default function Example() {
                   >
                     #
                   </kbd>{' '}
-                  <span className="sm:hidden">for projects,</span>
-                  <span className="hidden sm:inline">to access projects,</span>
+                  for projects,{' '}
                   <kbd
                     className={classNames(
                       'mx-1 flex h-5 w-5 items-center justify-center rounded border bg-white font-semibold sm:mx-2',
@@ -212,5 +182,5 @@ export default function Example() {
         </div>
       </Dialog>
     </Transition.Root>
-  )
+  );
 }

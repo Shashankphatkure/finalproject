@@ -3,6 +3,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "../lib/Features/counter/CounterSlice";
 import Notification1 from "@/components/notifications/notification1";
+import SitewideSearchbar from "@/components/command-palette/withfooter";
 
 
 
@@ -21,7 +22,9 @@ export default function Home() {
       <br/>
       <br/>
       <button className="inline-flex items-center rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => dispatch(decrement())}>Decrement by 1</button>
-      <Notification1/>
+        <Notification1 />
+        <SitewideSearchbar/>
+      
     </div>
   </div>
   );
