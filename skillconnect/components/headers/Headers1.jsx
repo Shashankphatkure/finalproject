@@ -35,12 +35,12 @@ const products = [
   { 
     name: 'Skillinterview', 
     description: 'Get ready for your next interview with our AI Interviewer!', 
-    href: '#', 
+    href: 'https://skillinterview.vercel.app/', 
     icon: FingerPrintIcon },
   {
     name: 'Skillrecommend',
     description: 'personalized recommendations for learning path.',
-    href: '#',
+    href: 'https://skillrecommend.vercel.app/',
     icon: SquaresPlusIcon,
   },
 ]
