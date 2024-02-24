@@ -116,7 +116,7 @@ const Addinternshipform = () => {
             </div>
          
 
-            <div>
+            {/* <div>
   <label htmlFor="description" className="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Description</label>
   <ReactQuill
     id="description"
@@ -142,7 +142,7 @@ const Addinternshipform = () => {
       'link', 'image', 'video'
     ]}
   />
-</div>
+</div> */}
           </div>
          
 
