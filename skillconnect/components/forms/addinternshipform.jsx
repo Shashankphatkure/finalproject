@@ -15,6 +15,7 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 const Addinternshipform = () => {
 
   const [description, setDescription] = useState('');
+  const formRef = useRef(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
