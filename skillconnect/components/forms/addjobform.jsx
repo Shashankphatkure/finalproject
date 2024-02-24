@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import React, { useState } from 'react';
+
 import { createClient } from '@supabase/supabase-js';
 
 const SUPABASE_URL = 'https://dxdpmgjttftkiqtlgcng.supabase.co';
@@ -13,18 +12,6 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const Addjobform = () => {
 
   const [description, setDescription] = useState('');
-  const [form, setForm] = useState(null);
-
-  useEffect(() => {
-    if (form) {
-      form.addEventListener('submit', handleSubmit);
-    }
-    return () => {
-      if (form) {
-        form.removeEventListener('submit', handleSubmit);
-      }
-    };
-  }, [form]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -66,7 +53,7 @@ const Addjobform = () => {
           Fill in the form
         </h2>
 
-        <form ref={setForm} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="mt-6 grid gap-4 lg:gap-6">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
@@ -118,33 +105,7 @@ const Addjobform = () => {
             </div>
          
 
-            <div>
-  <label htmlFor="description" className="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Description</label>
-  <ReactQuill
-    id="description"
-    name="description"
-    value={description}
-    onChange={setDescription}
-    className="py-3 px-4 block w-full border border-gray-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-    modules={{
-      toolbar: [
-        ['bold', 'italic', 'underline', 'strike'],
-        
-        [{ 'header':  1 }, { 'header':  2 }],
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'direction': 'rtl' }],
-        [{ 'header': [1,  2,  3,  4,  5,  6, false] }],
-        [{ 'align': [] }]
-      ]
-    }}
-    formats={[
-      'header', 'font', 'size',
-      'bold', 'italic', 'underline', 'strike', 'blockquote',
-      'list', 'bullet', 'indent',
-      'link', 'image', 'video'
-    ]}
-  />
-</div>
+
           </div>
          
 
