@@ -1,4 +1,4 @@
-import Addjobform from './addjobform'
+import Addjobform from "@/components/forms/addjobform"
 
 const page = () => {
   return (
@@ -109,7 +109,7 @@ const page = () => {
     </div>
 
 
-    {/* <Addjobform /> */}
+    <Addjobform/>
    
   </div>
   

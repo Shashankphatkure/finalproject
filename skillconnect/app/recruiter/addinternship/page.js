@@ -1,4 +1,4 @@
-import Addinternshipform from './addinternshipform'
+import Addinternshipform from "@/components/forms/addinternshipform"
 
 const page = () => {
   return (
@@ -109,7 +109,7 @@ const page = () => {
     </div>
 
 
-    {/* <Addinternshipform /> */}
+    <Addinternshipform/>
    
   </div>
   
