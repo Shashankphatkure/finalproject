@@ -117,30 +117,31 @@ const Addjobform = () => {
 
             </div>
             <div>
-          <label htmlFor="description" className="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Description</label>
-          <ReactQuill
-            id="description"
-            name="description"
-            value={description}
-            onChange={setDescription}
-            className="py-3 px-4 block w-full border border-gray-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-            modules={{
-              toolbar: [
-                ['bold', 'italic', 'underline', 'strike'],
-                [{ 'header':   1 }, { 'header':   2 }],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'direction': 'rtl' }],
-                [{ 'header': [1,   2,   3,   4,   5,   6, false] }],
-                [{ 'align': [] }]
-              ]
-            }}
-            formats={[
-              'header', 'font', 'size',
-              'bold', 'italic', 'underline', 'strike', 'blockquote',
-              'list', 'bullet', 'indent',
-              'link', 'image', 'video'
-            ]}
-          />
+            <label htmlFor="description" className="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Description</label>
+  <ReactQuill
+    id="description"
+    name="description"
+    value={description}
+    onChange={setDescription}
+    className="py-3 px-4 block w-full border border-gray-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+    modules={{
+      toolbar: [
+        ['bold', 'italic', 'underline', 'strike'],
+        
+        [{ 'header':  1 }, { 'header':  2 }],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'direction': 'rtl' }],
+        [{ 'header': [1,  2,  3,  4,  5,  6, false] }],
+        [{ 'align': [] }]
+      ]
+    }}
+    formats={[
+      'header', 'font', 'size',
+      'bold', 'italic', 'underline', 'strike', 'blockquote',
+      'list', 'bullet', 'indent',
+      'link', 'image', 'video'
+    ]}
+  />
         </div>
 
 

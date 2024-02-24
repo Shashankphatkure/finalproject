@@ -1,6 +1,7 @@
 'use client'
-import React, { useState } from 'react';
-import ReactQuill from 'react-quill';
+import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.snow.css';
 
 import { createClient } from '@supabase/supabase-js';
@@ -9,6 +10,7 @@ const SUPABASE_URL = 'https://dxdpmgjttftkiqtlgcng.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const Addinternshipform = () => {
 
@@ -49,6 +51,16 @@ const Addinternshipform = () => {
     }
   }
 
+  useEffect(() => {
+    if (formRef.current) {
+      formRef.current.addEventListener('submit', handleSubmit);
+    }
+    return () => {
+      if (formRef.current) {
+        formRef.current.removeEventListener('submit', handleSubmit);
+      }
+    };
+  }, [formRef]);
 
     return (
     <div className="relative">
@@ -58,7 +70,7 @@ const Addinternshipform = () => {
           Fill in the form
         </h2>
 
-        <form onSubmit={handleSubmit}>
+        <form ref={formRef} onSubmit={handleSubmit}>
           <div className="mt-6 grid gap-4 lg:gap-6">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
