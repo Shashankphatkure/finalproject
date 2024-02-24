@@ -140,7 +140,7 @@ export default function Headers1() {
           <Link href="/">
           <div className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto" src="/innovationlogo.png" alt="Skillconnect Logo" />
+            <img className="h-8 w-auto" src="/icon.png" alt="Skillconnect Logo" />
           </div>
           </Link>
         </div>
