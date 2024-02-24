@@ -22,11 +22,11 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Coursesearch from '@/components/Searchdashboard/coursesearch'
 
 const navigation = [
-  { name: 'Enrolled Courses', href: '#', current: true },
-  { name: 'Certificates', href: '#', current: false },
-  { name: 'Favourites', href: '#', current: false },
-  { name: 'Recommendations', href: '#', current: false },
-  { name: 'Reminders', href: '#', current: false },
+  { name: 'Enrolled Courses', href: '/course/dashboard', current: true },
+  { name: 'Certificates', href: '/course/dashboard/certificates', current: false },
+  { name: 'Favourites', href: '/course/dashboard/favourite', current: false },
+  { name: 'Recommendations', href: '/course/dashboard/recommendations', current: false },
+  { name: 'Reminders', href: '/course/dashboard/reminders', current: false },
 ]
 
 

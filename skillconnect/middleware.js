@@ -8,6 +8,7 @@ export const config = {
         "/course/dashboard",
         "/course/instructor/dashboard",
         "/jobs/Dashboard",
-        "/internship/dashboard"
+        "/internship/dashboard",
+        "/course/view/",
         ]
   };
