@@ -1,3 +1,4 @@
+import BlogSectionJobs from "@/components/blog-sections/BlogSectionJobs"
 import BlogSectionReviews from "@/components/blog-sections/BlogSectionReviews"
 import Datadisplay1 from "@/components/data-displays/data-display1"
 import DescriptionList from "@/components/descriptionlist/page"
@@ -65,7 +66,7 @@ export async function generateStaticParams() {
   </div>
   <div>
   <main>{/* Main area */}
-    <BlogSectionReviews />
+    <BlogSectionJobs />
     </main>
   </div>
 </div>
