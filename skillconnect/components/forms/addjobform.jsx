@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { createClient } from '@supabase/supabase-js';
@@ -13,6 +13,18 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const Addjobform = () => {
 
   const [description, setDescription] = useState('');
+  const [form, setForm] = useState(null);
+
+  useEffect(() => {
+    if (form) {
+      form.addEventListener('submit', handleSubmit);
+    }
+    return () => {
+      if (form) {
+        form.removeEventListener('submit', handleSubmit);
+      }
+    };
+  }, [form]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -54,7 +66,7 @@ const Addjobform = () => {
           Fill in the form
         </h2>
 
-        <form onSubmit={handleSubmit}>
+        <form ref={setForm} onSubmit={handleSubmit}>
           <div className="mt-6 grid gap-4 lg:gap-6">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
