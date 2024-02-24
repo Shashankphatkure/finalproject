@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.snow.css';
 
 import { createClient } from '@supabase/supabase-js';
+import SuccessNotification from '../notifications/successnotification';
 
 const SUPABASE_URL = 'https://dxdpmgjttftkiqtlgcng.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY';
@@ -16,6 +17,7 @@ const Addinternshipform = () => {
 
   const [description, setDescription] = useState('');
   const formRef = useRef(null);
+  const [showNotification, setShowNotification] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,6 +51,7 @@ const Addinternshipform = () => {
     } else {
       console.log(data);
       event.target.reset();
+      setShowNotification(true);
     }
   }
 
@@ -178,7 +181,7 @@ const Addinternshipform = () => {
           </p>
         </div>
       </div>
-    
+      {showNotification && <SuccessNotification text="internship"/>}
     </div>
   )
 }
