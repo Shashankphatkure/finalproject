@@ -17,7 +17,7 @@ const Addinternshipform = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Convert skills to array
+    // Convert skill to array
     const skillsArray = skills_needed.value.split(',');
     const who_can_applyArray = who_can_apply.value.split(',');
     const perksArray = perks.value.split(',');
