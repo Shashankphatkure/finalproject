@@ -66,7 +66,7 @@ const Addjobform = () => {
           Fill in the form
         </h2>
 
-        <form ref={formRef} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="mt-6 grid gap-4 lg:gap-6">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
