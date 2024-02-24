@@ -10,5 +10,7 @@ export const config = {
         "/jobs/Dashboard",
         "/internship/dashboard",
         "/course/view/",
+        "/recruiter/addinternship",
+        "/recruiter/addjob",
         ]
   };

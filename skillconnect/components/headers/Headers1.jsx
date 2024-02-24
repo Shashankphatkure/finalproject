@@ -110,9 +110,15 @@ const callsToAction = [
 ]
 
 const callsToAction2 = [
+  { name: 'Add new Job', href: '/recruiter/addjob', icon: PlayCircleIcon },
+  { name: 'Add new Internship', href: '/recruiter/addinternship', icon: PlayCircleIcon },
+  { name: 'View all jobs', href: '/jobs', icon: RectangleGroupIcon },
+]
+
+const callsToAction3 = [
   { name: 'Subscription', href: '/pricing', icon: PlayCircleIcon },
   { name: 'Contact us', href: '#', icon: PhoneIcon },
-  { name: 'View cart', href: '/cart', icon: RectangleGroupIcon },
+  { name: 'View my cart', href: '/cart', icon: RectangleGroupIcon },
 ]
 
 const userNavigation = [
@@ -288,7 +294,7 @@ export default function Headers1() {
                 <div className="bg-gray-50">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5">
-                      {callsToAction2.map((item) => (
+                      {callsToAction3.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
@@ -332,6 +338,7 @@ export default function Headers1() {
                     <span className="sr-only">Search</span>
                     <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
           </a>
+          
           
         </div>
         <div>
