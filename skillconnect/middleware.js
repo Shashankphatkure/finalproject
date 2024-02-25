@@ -12,5 +12,6 @@ export const config = {
         "/course/view/",
         "/recruiter/addinternship",
         "/recruiter/addjob",
+        "/chat",
         ]
   };
