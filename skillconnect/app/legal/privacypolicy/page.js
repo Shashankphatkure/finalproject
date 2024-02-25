@@ -2,10 +2,10 @@ import React from 'react';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="privacy-policy">
-      <h1>Privacy Policy</h1>
+    <div className="privacy-policy p-6">
+      <h1 className="text-4xl mb-4 font-bold">Privacy Policy</h1>
       <p>
-        This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from [Your Website Name] (the “Site”).
+        This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from Skillconnect (the “Site”).
       </p>
 
       <h2>Information We Collect</h2>
@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
 
       <h2>Contact Us</h2>
       <p>
-        If you have any questions about this Privacy Policy, please contact us at [Your Email Address].
+        If you have any questions about this Privacy Policy, please contact us at <p className="font-bold">support@skillconnect.com</p>
       </p>
     </div>
   );
