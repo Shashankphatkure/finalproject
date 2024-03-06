@@ -11,10 +11,10 @@ const users = [
   {
     id: 1,
     role: 'admin',
-    password: 'admin',
-    fullName: 'John Doe',
-    username: 'johndoe',
-    email: 'admin@vuexy.com'
+    password: 'swashank',
+    fullName: 'Shashank Phatkure',
+    username: 'shashankphatkure',
+    email: 'shashankphatkure@gmail.com'
   },
   {
     id: 2,

@@ -30,7 +30,7 @@ const navigation = () => {
       icon: 'tabler:navigation-bolt',
       children: [
         {
-          title: 'Profile',
+          title: 'Company Profile',
           path: '/pages/user-profile/profile'
         },
         {
