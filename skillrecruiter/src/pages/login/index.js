@@ -197,7 +197,7 @@ const LoginPage = () => {
                 Admin: <strong>shashankphatkure@gmail.com</strong> / Pass: <strong>swashank</strong>
               </Typography>
               <Typography variant='body2' sx={{ color: 'primary.main' }}>
-                Client: <strong>client@vuexy.com</strong> / Pass: <strong>client</strong>
+                Client: <strong>client@gmail.com</strong> / Pass: <strong>client</strong>
               </Typography>
             </Alert>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
