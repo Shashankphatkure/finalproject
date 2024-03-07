@@ -60,7 +60,7 @@ const navigation = () => {
         },
         {
           title: 'View job posts',
-          path: '/apps/user/list'
+          path: '/jobs/listedjobs/'
         }
       ]
     },
@@ -74,7 +74,7 @@ const navigation = () => {
         },
         {
           title: 'View internship posts',
-          path: '/apps/user/list'
+          path: '/internships/listedjobs/'
         }
       ]
     },
@@ -102,7 +102,7 @@ const navigation = () => {
         },
         {
           title: 'View added events',
-          path: '/apps/user/list'
+          path: '/events/listedevents/'
         }
       ]
     },
