@@ -63,52 +63,40 @@ const notifications = [
 
 const shortcuts = [
   {
-    title: 'Calendar',
-    url: '/apps/calendar',
-    icon: 'tabler:calendar',
-    subtitle: 'Appointments'
+    title: 'Employee Chat',
+    url: '/apps/chat/',
+    icon: 'tabler:messages',
+    subtitle: 'Communication'
   },
   {
-    title: 'Invoice App',
-    url: '/apps/invoice/list',
-    icon: 'tabler:file-invoice',
-    subtitle: 'Manage Accounts'
+    title: 'Emails',
+    url: '/apps/email/',
+    icon: 'tabler:mail',
+    subtitle: 'Message Applicants'
   },
   {
-    title: 'User App',
-    icon: 'tabler:users',
-    url: '/apps/user/list',
-    subtitle: 'Manage Users'
+    title: 'Activity',
+    icon: 'tabler:navigation-bolt',
+    url: '/pages/user-profile/profile/',
+    subtitle: 'Manage Tasks'
   },
   {
-    url: '/apps/roles',
-    icon: 'tabler:lock',
-    subtitle: 'Permissions',
-    title: 'Role Management'
+    url: '/apps/user/list/',
+    icon: 'tabler:user',
+    subtitle: 'Manage Applicants',
+    title: 'Candidates'
   },
   {
-    subtitle: 'CRM',
-    title: 'Dashboard',
-    url: '/dashboards/crm',
-    icon: 'tabler:device-analytics'
+    subtitle: 'Employ Positions',
+    title: 'Jobs',
+    url: '/jobs/listedjobs/',
+    icon: 'tabler:file-description'
   },
   {
-    title: 'Settings',
-    icon: 'tabler:settings',
-    subtitle: 'Account Settings',
-    url: '/pages/account-settings/account'
-  },
-  {
-    icon: 'tabler:help',
-    title: 'Help Center',
-    url: '/pages/help-center',
-    subtitle: 'FAQs & Articles'
-  },
-  {
-    title: 'Dialogs',
-    icon: 'tabler:square',
-    subtitle: 'Useful Popups',
-    url: '/pages/dialog-examples'
+    title: 'Internships',
+    icon: 'tabler:recharging',
+    subtitle: 'Training Program',
+    url: '/internships/listedjobs/'
   }
 ]
 
