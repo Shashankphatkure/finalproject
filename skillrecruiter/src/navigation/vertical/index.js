@@ -112,7 +112,7 @@ const navigation = () => {
       children: [
         {
           title: 'Add new blog',
-          path: '/apps/user/list'
+          path: '/blogs/addnewblog/'
         },
         {
           title: 'View added blogs',
