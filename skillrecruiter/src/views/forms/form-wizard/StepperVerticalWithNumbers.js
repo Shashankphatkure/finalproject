@@ -22,22 +22,23 @@ import StepperCustomDot from './StepperCustomDot'
 
 // ** Styled Component
 import StepperWrapper from 'src/@core/styles/mui/stepper'
+import { TextField } from '@mui/material'
 
 const steps = [
   {
-    title: 'Account Details',
+    title: 'Basic Event Information',
     subtitle: 'Enter your Account Details',
     description:
       'Chocolate cookie lollipop toffee candy canes marzipan liquorice chocolate. Cake gummi bears dessert lollipop apple pie candy. Candy pie sesame snaps lollipop biscuit chocolate cake fruitcake apple pie. Toffee carrot cake biscuit oat cake jujubes fruitcake biscuit gummi bears. Cake carrot cake jujubes sugar plum pastry gummi bears gingerbread icing. Lemon drops pie cake. Halvah marzipan bonbon gingerbread cupcake pastry gummi bears cake jujubes.'
   },
   {
-    title: 'Personal Info',
+    title: 'Guest Information',
     subtitle: 'Setup Information',
     description:
       'Lemon drops ice cream danish macaroon bear claw cookie. Liquorice ice cream chocolate bar pastry chocolate bar candy. Caramels candy canes marshmallow soufflé biscuit tart fruitcake tiramisu. Gummi bears icing gingerbread pastry bonbon gummies candy canes pastry. Candy canes chocolate chupa chups cake cheesecake apple pie halvah dessert. Chupa chups wafer tootsie roll fruitcake lemon drops cookie donut topping powder.'
   },
   {
-    title: 'Social Links',
+    title: 'Additional Event Details',
     subtitle: 'Add Social Links',
     description:
       'Jelly lollipop halvah bear claw jujubes macaroon candy canes. Soufflé halvah lollipop liquorice macaroon powder. Cookie topping pastry oat cake caramels bonbon. Sesame snaps sweet cookie macaroon soufflé pudding. Chocolate donut macaroon muffin donut biscuit marzipan halvah. Bear claw biscuit chocolate cake chupa chups oat cake bear claw cupcake tiramisu apple pie. Carrot cake bear claw marshmallow sweet pudding toffee.'
@@ -66,7 +67,7 @@ const StepperVerticalWithNumbers = () => {
 
   return (
     <Card>
-      <CardHeader title='Vertical Stepper with Numbers' />
+      <CardHeader title='Add new event' />
       <CardContent>
         <StepperWrapper>
           <Stepper activeStep={activeStep} orientation='vertical'>
@@ -83,7 +84,47 @@ const StepperVerticalWithNumbers = () => {
                     </div>
                   </StepLabel>
                   <StepContent>
-                    <Typography>{step.description}</Typography>
+                    {activeStep === 0 && <TextField sx={{ mt: 2 }} label='Event Name' variant='outlined' fullWidth />}
+                    {activeStep === 0 && <TextField sx={{ mt: 2 }} label='Event Date' variant='outlined' fullWidth />}
+                    {activeStep === 0 && (
+                      <TextField sx={{ mt: 2 }} label='Event Location' variant='outlined' fullWidth />
+                    )}
+
+                    {activeStep === 0 && <TextField sx={{ mt: 2 }} label='Video link' variant='outlined' fullWidth />}
+
+                    {activeStep === 1 && (
+                      <TextField sx={{ mt: 2 }} label='RSVP Deadline' variant='outlined' fullWidth />
+                    )}
+                    {activeStep === 1 && (
+                      <TextField sx={{ mt: 2 }} label='Special Requests' variant='outlined' fullWidth />
+                    )}
+                    {activeStep === 1 && (
+                      <TextField sx={{ mt: 2 }} label='Transportation' variant='outlined' fullWidth />
+                    )}
+                    {activeStep === 1 && <TextField sx={{ mt: 2 }} label='Thumbnail' variant='outlined' fullWidth />}
+                    {activeStep === 1 && (
+                      <TextField sx={{ mt: 2 }} label='Image Gallery' variant='outlined' fullWidth />
+                    )}
+
+                    {activeStep === 2 && <TextField sx={{ mt: 2 }} label='Category' variant='outlined' fullWidth />}
+                    {activeStep === 2 && <TextField sx={{ mt: 2 }} label='Tags' variant='outlined' fullWidth />}
+                    {activeStep === 2 && (
+                      <TextField sx={{ mt: 2 }} label='Event Schedule' variant='outlined' fullWidth />
+                    )}
+                    {activeStep === 2 && (
+                      <TextField
+                        sx={{ mt: 2 }}
+                        label='Event Description'
+                        variant='outlined'
+                        fullWidth
+                        multiline
+                        rows={4} // Adjust the number of rows as needed
+                      />
+                    )}
+                    {activeStep === 2 && (
+                      <TextField sx={{ mt: 2 }} label='Social Media links' variant='outlined' fullWidth />
+                    )}
+
                     <div className='button-wrapper'>
                       <Button
                         size='small'

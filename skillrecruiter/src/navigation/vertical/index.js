@@ -98,7 +98,7 @@ const navigation = () => {
       children: [
         {
           title: 'Add new event',
-          path: '/apps/user/list'
+          path: '/events/addnewevent/'
         },
         {
           title: 'View all events',
