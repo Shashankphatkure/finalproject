@@ -59,7 +59,7 @@ const navigation = () => {
           path: '/apps/user/list'
         },
         {
-          title: 'View job posts',
+          title: 'View all job',
           path: '/jobs/listedjobs/'
         }
       ]
@@ -73,7 +73,7 @@ const navigation = () => {
           path: '/apps/user/list'
         },
         {
-          title: 'View internship posts',
+          title: 'View all internships',
           path: '/internships/listedjobs/'
         }
       ]
@@ -101,7 +101,7 @@ const navigation = () => {
           path: '/apps/user/list'
         },
         {
-          title: 'View added events',
+          title: 'View all events',
           path: '/events/listedevents/'
         }
       ]
@@ -116,7 +116,7 @@ const navigation = () => {
         },
         {
           title: 'View added blogs',
-          path: '/apps/user/list'
+          path: '/blogs/listedblogs/'
         }
       ]
     },

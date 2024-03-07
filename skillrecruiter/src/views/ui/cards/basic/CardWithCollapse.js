@@ -32,7 +32,7 @@ const CardWithCollapse = () => {
           Popular Uses Of The Internet
         </Typography>
         <Typography sx={{ color: 'text.secondary' }}>
-          Although cards can support multiple actions, UI controls, and an overflow menu.
+          2024-01-26 {'>'} <b>Category: Books</b>
         </Typography>
       </CardContent>
       <CardActions className='card-action-dense'>
@@ -44,7 +44,7 @@ const CardWithCollapse = () => {
             justifyContent: 'space-between'
           }}
         >
-          <Button onClick={handleClick}>Details</Button>
+          <Button onClick={handleClick}>Edit</Button>
           <IconButton size='small' onClick={handleClick}>
             <Icon fontSize='1.875rem' icon={collapse ? 'tabler:chevron-up' : 'tabler:chevron-down'} />
           </IconButton>
