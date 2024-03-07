@@ -30,19 +30,19 @@ const navigation = () => {
       icon: 'tabler:navigation-bolt',
       children: [
         {
-          title: 'Company Profile',
+          title: 'PUBLIC PROFILE',
           path: '/pages/user-profile/profile'
         },
         {
-          title: 'Teams',
+          title: 'JOBS CARD',
           path: '/pages/user-profile/teams'
         },
         {
-          title: 'Projects',
+          title: 'INTERNSHIP CARD',
           path: '/pages/user-profile/projects'
         },
         {
-          title: 'Connections',
+          title: 'BEST CANDIDATE CARD',
           path: '/pages/user-profile/connections'
         }
       ]
