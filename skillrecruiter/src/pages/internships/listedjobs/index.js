@@ -69,7 +69,6 @@ const Pricing = ({ internships }) => {
 
   return (
     <Grid container spacing={6}>
-      {console.log(internships)}
       {internships.map((item, index) => (
         <Grid item xs={12} sm={6} key={index}>
           <CardUser title={item.title} location={item.location} salary={item.stipend} />

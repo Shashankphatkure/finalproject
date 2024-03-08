@@ -16,7 +16,7 @@ import CardActions from '@mui/material/CardActions'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
-const CardWithCollapse = () => {
+const CardWithCollapse = ({ title, thumbnail, category, description, updateddate }) => {
   // ** State
   const [collapse, setCollapse] = useState(false)
 
@@ -26,13 +26,13 @@ const CardWithCollapse = () => {
 
   return (
     <Card>
-      <CardMedia sx={{ height: '14.5625rem' }} image='/images/cards/paper-boat.png' />
+      <CardMedia sx={{ height: '14.5625rem' }} image={thumbnail} />
       <CardContent>
         <Typography variant='h5' sx={{ mb: 2 }}>
-          Popular Uses Of The Internet
+          {title}
         </Typography>
         <Typography sx={{ color: 'text.secondary' }}>
-          2024-01-26 {'>'} <b>Category: Books</b>
+          {updateddate} {'>'} <b>Category: {category}</b>
         </Typography>
       </CardContent>
       <CardActions className='card-action-dense'>
@@ -53,12 +53,7 @@ const CardWithCollapse = () => {
       <Collapse in={collapse}>
         <Divider sx={{ m: '0 !important' }} />
         <CardContent>
-          <Typography sx={{ color: 'text.secondary' }}>
-            I&prime;m a thing. But, like most politicians, he promised more than he could deliver. You won&prime;t have
-            time for sleeping, soldier, not with all the bed making you&prime;ll be doing. Then we&prime;ll go with that
-            data file! Hey, you add a one and two zeros to that or we walk! You&prime;re going to do his laundry?
-            I&prime;ve got to find a way to escape.
-          </Typography>
+          <Typography sx={{ color: 'text.secondary' }}>{description}</Typography>
         </CardContent>
       </Collapse>
     </Card>
