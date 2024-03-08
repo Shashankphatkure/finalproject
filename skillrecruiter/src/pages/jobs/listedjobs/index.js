@@ -8,6 +8,33 @@ import MuiCardContent from '@mui/material/CardContent'
 
 // ** Third Party Imports
 import axios from 'axios'
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://dxdpmgjttftkiqtlgcng.supabase.co'
+
+const supabaseAnonKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY'
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+async function getData() {
+  // Fetch data from the jobs table
+  const { data, error } = await supabase.from('jobs').select(`
+     *,
+     company:company!jobs_company_fkey (
+       companyname,
+       companylogo,
+       rating
+     )
+  `)
+
+  if (error) {
+    console.error('Error fetching data:', error)
+
+    return []
+  }
+
+  return data
+}
 
 // ** Demo Imports
 import PricingCTA from 'src/views/pages/pricing/PricingCTA'
@@ -30,7 +57,7 @@ const CardContent = styled(MuiCardContent)(({ theme }) => ({
   }
 }))
 
-const Pricing = ({ apiData }) => {
+const Pricing = ({ jobs }) => {
   // ** States
   const [plan, setPlan] = useState('annually')
 
@@ -46,9 +73,9 @@ const Pricing = ({ apiData }) => {
 
   return (
     <Grid container spacing={6}>
-      {cardsArray.map((_, index) => (
+      {jobs.map((job, index) => (
         <Grid item xs={12} sm={6} key={index}>
-          <CardUser />
+          <CardUser title={job.title} location={job.location} salary={job.salary} />
         </Grid>
       ))}
     </Grid>
@@ -56,12 +83,11 @@ const Pricing = ({ apiData }) => {
 }
 
 export const getStaticProps = async () => {
-  const res = await axios.get('/pages/pricing')
-  const apiData = res.data
+  const jobs = await getData()
 
   return {
     props: {
-      apiData
+      jobs
     }
   }
 }

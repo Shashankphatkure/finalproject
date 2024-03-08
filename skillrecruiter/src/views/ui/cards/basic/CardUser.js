@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 import AvatarGroup from '@mui/material/AvatarGroup'
 
-const CardUser = () => {
+const CardUser = ({ title, location, salary }) => {
   return (
     <Card sx={{ position: 'relative' }}>
       <CardContent>
@@ -23,14 +23,14 @@ const CardUser = () => {
           }}
         >
           <Box sx={{ mr: 2, mb: 1, display: 'flex', flexDirection: 'column' }}>
-            <Typography variant='h5'>Remote React / React Native Developer</Typography>
-            <Typography variant='body2'>London, UK</Typography>
+            <Typography variant='h5'>{title}</Typography>
+            <Typography variant='body2'>{location}</Typography>
           </Box>
           <Button variant='contained'>View Candidates</Button>
         </Box>
         <Box sx={{ gap: 2, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant='subtitle2' sx={{ whiteSpace: 'nowrap', color: 'text.primary' }}>
-            USD $87K - USD $135K
+            USD ${salary}
           </Typography>
           <AvatarGroup max={4}>
             <Avatar src='/images/avatars/8.png' alt='Alice Cobb' />
