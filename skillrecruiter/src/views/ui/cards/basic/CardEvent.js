@@ -8,13 +8,10 @@ import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 import AvatarGroup from '@mui/material/AvatarGroup'
 
-const CardEvent = () => {
+const CardEvent = ({ title, location, thumbnail, date }) => {
   return (
     <Card sx={{ position: 'relative' }}>
-      <CardMedia
-        sx={{ height: '12.625rem' }}
-        image='https://images.unsplash.com/photo-1671726203394-491c8b574a0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80'
-      />
+      <CardMedia sx={{ height: '12.625rem' }} image={thumbnail} />
       <Avatar
         alt='Robert Meyer'
         src='/images/avatars/1.png'
@@ -39,14 +36,14 @@ const CardEvent = () => {
           }}
         >
           <Box sx={{ mr: 2, mb: 1, display: 'flex', flexDirection: 'column' }}>
-            <Typography variant='h5'>Sustainable Living Expo</Typography>
-            <Typography variant='body2'>London, UK</Typography>
+            <Typography variant='h5'>{title}</Typography>
+            <Typography variant='body2'>{location}</Typography>
           </Box>
           <Button variant='contained'>Joining members</Button>
         </Box>
         <Box sx={{ gap: 2, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant='subtitle2' sx={{ whiteSpace: 'nowrap', color: 'text.primary' }}>
-            Sunday, March 3 · 4:30 - 7pm IST
+            {date} · 4:30 - 7pm IST
           </Typography>
           <AvatarGroup max={4}>
             <Avatar src='/images/avatars/8.png' alt='Alice Cobb' />
