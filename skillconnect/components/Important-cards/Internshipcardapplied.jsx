@@ -44,7 +44,7 @@ function renderStars(rating) {
   return <div className="flex items-center">{stars}</div>;
 }
 
-export default async function Internshipcard() {
+export default async function InternshipcardApplied() {
   const data = await getData();
 
   return (
@@ -53,12 +53,9 @@ export default async function Internshipcard() {
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <div className="mt-4 space-y-10 lg:space-y-10">
             {data.map((item) => (
-              <article
-                key={item.id}
-                className="relative isolate flex flex-col gap-8 lg:flex-row"
-              >
+              <article key={item.id} className="">
                 <div>
-                  <div className="group relative max-w-xl">
+                  <div className="">
                     <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 flex items-center">
                       <a className="flex-grow">
                         <span className="absolute inset-0" />
@@ -102,7 +99,7 @@ export default async function Internshipcard() {
                         <p className="flex font-semibold text-gray-900">
                           <a>
                             <span className="absolute inset-0" />
-                            Start Date
+                            Applied Date
                           </a>
                         </p>
                         <p className="text-gray-600">{item.start_date}</p>
@@ -134,8 +131,11 @@ export default async function Internshipcard() {
                         </p>
                         <p className="text-gray-600">{item.location}</p>
                       </div>
-                      <Link href={`/internship/${item.id}`}>
-                        <Bookmark text="Apply Now" />
+                      <Link
+                        href={`/internship/${item.id}`}
+                        style={{ display: "flex", justifyContent: "flex-end" }}
+                      >
+                        <Bookmark text="Cancel Request" />
                       </Link>
                     </div>
                   </div>

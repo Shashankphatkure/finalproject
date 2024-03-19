@@ -1,5 +1,6 @@
-import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
+
+import { createClient } from "@supabase/supabase-js";
 import Bookmark from "../buttons/bookmark";
 
 // Initialize Supabase client
@@ -10,13 +11,13 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 async function getData() {
   // Fetch data from the jobs table
-  const { data, error } = await supabase.from("internships").select(`
+  const { data, error } = await supabase.from("jobs").select(`
     *,
-    company:company!public_internships_company_fkey (
-       companyname,
-       companylogo,
-       rating
-     )
+    company:company!jobs_company_fkey (
+      companyname,
+      companylogo,
+      rating
+    )
   `);
 
   if (error) {
@@ -44,7 +45,7 @@ function renderStars(rating) {
   return <div className="flex items-center">{stars}</div>;
 }
 
-export default async function Internshipcard() {
+export default async function JobscardApplied() {
   const data = await getData();
 
   return (
@@ -102,28 +103,10 @@ export default async function Internshipcard() {
                         <p className="flex font-semibold text-gray-900">
                           <a>
                             <span className="absolute inset-0" />
-                            Start Date
+                            Salary
                           </a>
                         </p>
-                        <p className="text-gray-600">{item.start_date}</p>
-                      </div>
-                      <div className="text-sm leading-6">
-                        <p className="flex font-semibold text-gray-900">
-                          <a>
-                            <span className="absolute inset-0" />
-                            Duration
-                          </a>
-                        </p>
-                        <p className="text-gray-600">{item.duration}</p>
-                      </div>
-                      <div className="text-sm leading-6">
-                        <p className="flex font-semibold text-gray-900">
-                          <a>
-                            <span className="absolute inset-0" />
-                            Stipend
-                          </a>
-                        </p>
-                        <p className="text-gray-600">{item.stipend}</p>
+                        <p className="text-gray-600">{item.salary}</p>
                       </div>
                       <div className="text-sm leading-6">
                         <p className="flex font-semibold text-gray-900">
@@ -134,30 +117,27 @@ export default async function Internshipcard() {
                         </p>
                         <p className="text-gray-600">{item.location}</p>
                       </div>
-                      <Link href={`/internship/${item.id}`}>
-                        <Bookmark text="Apply Now" />
+                      <div className="text-sm leading-6">
+                        <p className="flex font-semibold text-gray-900">
+                          <a>
+                            <span className="absolute inset-0" />
+                            Date Applied
+                          </a>
+                        </p>
+                        <p className="text-gray-600">{item.date_added}</p>
+                      </div>
+                      <Link href={`/jobs/${item.id}`}>
+                        <Bookmark text="Cancel Request" />
                       </Link>
                     </div>
                   </div>
                   <div className="flex items-center gap-x-3 pt-3 text-xs">
-                    Skills
-                    {item.skills_needed.map((skills_needed, index) => (
+                    {item.skills.map((skill, index) => (
                       <span
                         key={index}
                         className="relative z-10 rounded-full bg-gray-50 px-3 py-3 font-medium text-gray-600 hover:bg-gray-100"
                       >
-                        {skills_needed}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-x-3 pt-3 text-xs">
-                    Perks
-                    {item.perks.map((perks, index) => (
-                      <span
-                        key={index}
-                        className="relative z-10 rounded-full bg-gray-50 px-3 py-3 font-medium text-gray-600 hover:bg-gray-100"
-                      >
-                        {perks}
+                        {skill}
                       </span>
                     ))}
                   </div>
