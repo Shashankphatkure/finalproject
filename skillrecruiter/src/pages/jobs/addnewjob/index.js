@@ -43,7 +43,7 @@ const Pricing = ({ apiData }) => {
   return (
     <Grid>
       <Grid item>
-        <StepperVerticalWith />
+        <StepperVerticalWithNumbersJob />
       </Grid>
     </Grid>
   )
