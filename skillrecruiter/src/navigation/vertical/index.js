@@ -56,7 +56,7 @@ const navigation = () => {
       children: [
         {
           title: 'Add new job',
-          path: '/apps/user/list'
+          path: '/jobs/addnewjob/'
         },
         {
           title: 'View all job',
@@ -70,7 +70,7 @@ const navigation = () => {
       children: [
         {
           title: 'Add new internship',
-          path: '/apps/user/list'
+          path: '/internships/addnewinternship/'
         },
         {
           title: 'View all internships',
