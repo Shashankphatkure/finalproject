@@ -1,7 +1,14 @@
-"use client"
-import Link from 'next/link'
-import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Menu, Popover, Transition } from '@headlessui/react'
+"use client";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
+import { Fragment, useState } from "react";
+import {
+  Dialog,
+  Disclosure,
+  Menu,
+  Popover,
+  Transition,
+} from "@headlessui/react";
 import {
   Bars3Icon,
   ChartPieIcon,
@@ -12,142 +19,158 @@ import {
   ShoppingBagIcon,
   SquaresPlusIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
-import SitewideSearchbar from '../command-palette/withfooter'; // Adjust the path as necessary
+} from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  PhoneIcon,
+  PlayCircleIcon,
+  RectangleGroupIcon,
+} from "@heroicons/react/20/solid";
+import SitewideSearchbar from "../command-palette/withfooter"; // Adjust the path as necessary
 
 const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://cdn-icons-png.freepik.com/512/3177/3177440.png',
-}
+  name: "Tom Cook",
+  email: "tom@example.com",
+  imageUrl: "https://cdn-icons-png.freepik.com/512/3177/3177440.png",
+};
 
 const products = [
   {
-    name: 'Skillchat',
-    description: 'Understand things faster by using our AI Chatbot! Skillchat.',
-    href: 'https://skillchat.vercel.app/',
+    name: "Skillchat",
+    description: "Understand things faster by using our AI Chatbot! Skillchat.",
+    href: "https://skillchat.vercel.app/",
     icon: ChartPieIcon,
   },
   {
-    name: 'CoNotes',
-    description: 'Ai Generated Context based Notes taking while learning new things.',
-    href: 'https://skillconotes.vercel.app/',
+    name: "CoNotes",
+    description:
+      "Ai Generated Context based Notes taking while learning new things.",
+    href: "https://skillconotes.vercel.app/",
     icon: CursorArrowRaysIcon,
   },
-  { 
-    name: 'Skillinterview', 
-    description: 'Get ready for your next interview with our AI Interviewer!', 
-    href: 'https://skillinterview.vercel.app/', 
-    icon: FingerPrintIcon },
   {
-    name: 'Skillrecommend',
-    description: 'personalized recommendations for learning path.',
-    href: 'https://skillrecommend.vercel.app/',
+    name: "Skillinterview",
+    description: "Get ready for your next interview with our AI Interviewer!",
+    href: "https://skillinterview.vercel.app/",
+    icon: FingerPrintIcon,
+  },
+  {
+    name: "Skillrecommend",
+    description: "personalized recommendations for learning path.",
+    href: "https://skillrecommend.vercel.app/",
     icon: SquaresPlusIcon,
   },
-]
+];
 
 const myjobs = [
   {
-    name: 'Jobs',
-    description: 'Find job opportunities from top companies across industries.',
-    href: '/jobs',
+    name: "Jobs",
+    description: "Find job opportunities from top companies across industries.",
+    href: "/jobs",
     icon: ChartPieIcon,
   },
   {
-    name: 'Companies',
-    description: 'Learn about leading companies, their culture, and projects.',
-    href: '/companies',
+    name: "Companies",
+    description: "Learn about leading companies, their culture, and projects.",
+    href: "/companies",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: 'Internships',
-    description: 'Prepare for interviews with our AI Interviewer.',
-    href: '/internship',
+    name: "Internships",
+    description: "Prepare for interviews with our AI Interviewer.",
+    href: "/internship",
     icon: FingerPrintIcon,
   },
   {
-    name: 'Resume Builder',
-    description: 'Create a tailored resume for your career goals.',
-    href: '#',
+    name: "Resume Builder",
+    description: "Create a tailored resume for your career goals.",
+    href: "#",
     icon: SquaresPlusIcon,
-  },  
-]
+  },
+];
 
 const shopping = [
   {
-    name: 'Shop',
-    description: 'Dive into a vast collection of products curated just for you',
-    href: '/shop',
+    name: "Shop",
+    description: "Dive into a vast collection of products curated just for you",
+    href: "/shop",
     icon: ChartPieIcon,
   },
   {
-    name: 'Categories',
-    description: 'Delve into a world of options sorted neatly by category',
-    href: '/shop/category',
+    name: "Categories",
+    description: "Delve into a world of options sorted neatly by category",
+    href: "/shop/category",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: 'Checkout',
-    description: 'Finalize your purchases confidently and securely',
-    href: '/shop/checkout',
+    name: "Checkout",
+    description: "Finalize your purchases confidently and securely",
+    href: "/shop/checkout",
     icon: FingerPrintIcon,
   },
   {
-    name: 'Order History',
-    description: 'Keep tabs on your shopping journey effortlessly.',
-    href: '/shop/orderhistory',
+    name: "Order History",
+    description: "Keep tabs on your shopping journey effortlessly.",
+    href: "/shop/orderhistory",
     icon: SquaresPlusIcon,
-  },  
-]
+  },
+];
 
 const callsToAction = [
-  { name: 'Subscription', href: '/pricing', icon: PlayCircleIcon },
-  { name: 'Contact us', href: '#', icon: PhoneIcon },
-  { name: 'View all courses', href: '/course', icon: RectangleGroupIcon },
-]
+  { name: "Subscription", href: "/pricing", icon: PlayCircleIcon },
+  { name: "Contact us", href: "#", icon: PhoneIcon },
+  { name: "View all courses", href: "/course", icon: RectangleGroupIcon },
+];
 
 const callsToAction2 = [
-  { name: 'Add new Job', href: '/recruiter/addjob', icon: PlayCircleIcon },
-  { name: 'Add new Internship', href: '/recruiter/addinternship', icon: PlayCircleIcon },
-  { name: 'View all jobs', href: '/jobs', icon: RectangleGroupIcon },
-]
+  { name: "Add new Job", href: "/recruiter/addjob", icon: PlayCircleIcon },
+  {
+    name: "Add new Internship",
+    href: "/recruiter/addinternship",
+    icon: PlayCircleIcon,
+  },
+  { name: "View all jobs", href: "/jobs", icon: RectangleGroupIcon },
+];
 
 const callsToAction3 = [
-  { name: 'Subscription', href: '/pricing', icon: PlayCircleIcon },
-  { name: 'Contact us', href: '#', icon: PhoneIcon },
-  { name: 'View my cart', href: '/cart', icon: RectangleGroupIcon },
-]
+  { name: "Subscription", href: "/pricing", icon: PlayCircleIcon },
+  { name: "Contact us", href: "#", icon: PhoneIcon },
+  { name: "View my cart", href: "/cart", icon: RectangleGroupIcon },
+];
 
 const userNavigation = [
-  { name: 'Dynamic Profile', href: '/construction' },
-  { name: 'My Settings', href: '/auth/userprofile' },
-  { name: 'Course Section', href: '/course/dashboard' },
-  { name: 'Jobs Section', href: '/jobs/Dashboard' },
-  { name: 'Internship Section', href: '/internship/Dashboard' },
-  { name: 'Blogs Section', href: '/blogs/Dashboard' },
-  { name: 'Sign out', href: '/api/auth/logout' },
+  { name: "My Sharable Profile", href: "/construction" },
+  { name: "Settings", href: "/auth/userprofile" },
+  { name: "Course Section", href: "/course/dashboard" },
+  { name: "Jobs Section", href: "/jobs/Dashboard" },
+  { name: "Internship Section", href: "/internship/Dashboard" },
+  { name: "Sign out", href: "/api/auth/logout" },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Headers1() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
 
   return (
     <header className="isolate z-10 sticky top-0 backdrop-blur-sm bg-white/30">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <Link href="/">
-          <div className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto" src="/icon.png" alt="Skillconnect Logo" />
-          </div>
+            <div className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <img
+                className="h-8 w-auto"
+                src="/icon.png"
+                alt="Skillconnect Logo"
+              />
+            </div>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -164,7 +187,10 @@ export default function Headers1() {
           <Popover>
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
               AI Hub
-              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              <ChevronDownIcon
+                className="h-5 w-5 flex-none text-gray-400"
+                aria-hidden="true"
+              />
             </Popover.Button>
 
             <Transition
@@ -179,11 +205,20 @@ export default function Headers1() {
               <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-900/5">
                 <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {products.map((item) => (
-                    <div key={item.name} className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50">
+                    <div
+                      key={item.name}
+                      className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50"
+                    >
                       <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        <item.icon
+                          className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                          aria-hidden="true"
+                        />
                       </div>
-                      <a href={item.href} className="mt-6 block font-semibold text-gray-900">
+                      <a
+                        href={item.href}
+                        className="mt-6 block font-semibold text-gray-900"
+                      >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
@@ -200,7 +235,10 @@ export default function Headers1() {
                           href={item.href}
                           className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                         >
-                          <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                          <item.icon
+                            className="h-5 w-5 flex-none text-gray-400"
+                            aria-hidden="true"
+                          />
                           {item.name}
                         </a>
                       ))}
@@ -214,7 +252,10 @@ export default function Headers1() {
           <Popover>
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
               Jobs & Internships
-              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              <ChevronDownIcon
+                className="h-5 w-5 flex-none text-gray-400"
+                aria-hidden="true"
+              />
             </Popover.Button>
 
             <Transition
@@ -229,11 +270,20 @@ export default function Headers1() {
               <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-900/5">
                 <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {myjobs.map((item) => (
-                    <div key={item.name} className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50">
+                    <div
+                      key={item.name}
+                      className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50"
+                    >
                       <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        <item.icon
+                          className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                          aria-hidden="true"
+                        />
                       </div>
-                      <a href={item.href} className="mt-6 block font-semibold text-gray-900">
+                      <a
+                        href={item.href}
+                        className="mt-6 block font-semibold text-gray-900"
+                      >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
@@ -250,7 +300,10 @@ export default function Headers1() {
                           href={item.href}
                           className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                         >
-                          <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                          <item.icon
+                            className="h-5 w-5 flex-none text-gray-400"
+                            aria-hidden="true"
+                          />
                           {item.name}
                         </a>
                       ))}
@@ -264,7 +317,10 @@ export default function Headers1() {
           <Popover>
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
               Shopping
-              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              <ChevronDownIcon
+                className="h-5 w-5 flex-none text-gray-400"
+                aria-hidden="true"
+              />
             </Popover.Button>
 
             <Transition
@@ -279,11 +335,20 @@ export default function Headers1() {
               <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-900/5">
                 <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {shopping.map((item) => (
-                    <div key={item.name} className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50">
+                    <div
+                      key={item.name}
+                      className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50"
+                    >
                       <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        <item.icon
+                          className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                          aria-hidden="true"
+                        />
                       </div>
-                      <a href={item.href} className="mt-6 block font-semibold text-gray-900">
+                      <a
+                        href={item.href}
+                        className="mt-6 block font-semibold text-gray-900"
+                      >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
@@ -300,7 +365,10 @@ export default function Headers1() {
                           href={item.href}
                           className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                         >
-                          <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                          <item.icon
+                            className="h-5 w-5 flex-none text-gray-400"
+                            aria-hidden="true"
+                          />
                           {item.name}
                         </a>
                       ))}
@@ -311,81 +379,104 @@ export default function Headers1() {
             </Transition>
           </Popover>
 
-          <Link href="/course" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link
+            href="/course"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
             Courses
           </Link>
-          <Link href="/events" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link
+            href="/events"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
             Events
           </Link>
-          <Link href="/aboutus" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link
+            href="/aboutus"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
             About
           </Link>
-          <Link href="/blogs" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link
+            href="/blogs"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
             Blogs
           </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <div className="ml-2 p-2 text-gray-400 hover:text-gray-500" onClick={() => setIsSearchbarOpen(!isSearchbarOpen)}>
-                    <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
+          <div
+            className="ml-2 p-2 text-gray-400 hover:text-gray-500"
+            onClick={() => setIsSearchbarOpen(!isSearchbarOpen)}
+          >
+            <span className="sr-only">Search</span>
+            <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
           </div>
           {isSearchbarOpen && <SitewideSearchbar />}
           <a href="#" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <HeartIcon className="h-6 w-6" aria-hidden="true" />
-                  </a>
-          <a href="/cart" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
+            <span className="sr-only">Search</span>
+            <HeartIcon className="h-6 w-6" aria-hidden="true" />
           </a>
-          
-          
+          <a
+            href="/cart"
+            className="ml-2 p-2 text-gray-400 hover:text-gray-500"
+          >
+            <span className="sr-only">Search</span>
+            <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
+          </a>
         </div>
         <div>
-                      <div className="flex items-center">
-                        
-
-                        {/* Profile dropdown */}
-                        <Menu as="div" className="relative ml-3 flex-shrink-0">
-                          <div>
-                            <Menu.Button className="relative flex rounded-full bg-white text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-300">
-                              <span className="absolute -inset-1.5" />
-                              <span className="sr-only">Open user menu</span>
-                              <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
-                            </Menu.Button>
-                          </div>
-                          <Transition
-                            as={Fragment}
-                            enter="transition ease-out duration-100"
-                            enterFrom="transform opacity-0 scale-95"
-                            enterTo="transform opacity-100 scale-100"
-                            leave="transition ease-in duration-75"
-                            leaveFrom="transform opacity-100 scale-100"
-                            leaveTo="transform opacity-0 scale-95"
-                          >
-                            <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                              {userNavigation.map((item) => (
-                                <Menu.Item key={item.name}>
-                                  {({ active }) => (
-                                    <a
-                                      href={item.href}
-                                      className={classNames(
-                                        active ? 'bg-gray-100' : '',
-                                        'block px-4 py-2 text-sm text-gray-700'
-                                      )}
-                                    >
-                                      {item.name}
-                                    </a>
-                                  )}
-                                </Menu.Item>
-                              ))}
-                            </Menu.Items>
-                          </Transition>
-                        </Menu>
-                      </div>
-                    </div>
+          <div className="flex items-center">
+            {/* Profile dropdown */}
+            <Menu as="div" className="relative ml-3 flex-shrink-0">
+              <div>
+                <Menu.Button className="relative flex rounded-full bg-white text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-300">
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">Open user menu</span>
+                  <img
+                    className="h-8 w-8 rounded-full"
+                    src={user.imageUrl}
+                    alt=""
+                  />
+                </Menu.Button>
+              </div>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  {userNavigation.map((item) => (
+                    <Menu.Item key={item.name}>
+                      {({ active }) => (
+                        <a
+                          href={item.href}
+                          className={classNames(
+                            active ? "bg-gray-100" : "",
+                            "block px-4 py-2 text-sm text-gray-700"
+                          )}
+                        >
+                          {item.name}
+                        </a>
+                      )}
+                    </Menu.Item>
+                  ))}
+                </Menu.Items>
+              </Transition>
+            </Menu>
+          </div>
+        </div>
       </nav>
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
@@ -415,7 +506,10 @@ export default function Headers1() {
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Product
                         <ChevronDownIcon
-                          className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
+                          className={classNames(
+                            open ? "rotate-180" : "",
+                            "h-5 w-5 flex-none"
+                          )}
                           aria-hidden="true"
                         />
                       </Disclosure.Button>
@@ -466,5 +560,5 @@ export default function Headers1() {
         </Dialog.Panel>
       </Dialog>
     </header>
-  )
+  );
 }

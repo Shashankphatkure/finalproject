@@ -44,7 +44,7 @@ function renderStars(rating) {
   return <div className="flex items-center">{stars}</div>;
 }
 
-export default async function InternshipcardApplied() {
+export default async function Internshipcard() {
   const data = await getData();
 
   return (
@@ -53,9 +53,12 @@ export default async function InternshipcardApplied() {
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <div className="mt-4 space-y-10 lg:space-y-10">
             {data.map((item) => (
-              <article key={item.id} className="">
+              <article
+                key={item.id}
+                className="relative isolate flex flex-col gap-8 lg:flex-row"
+              >
                 <div>
-                  <div className="">
+                  <div className="group relative max-w-xl">
                     <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 flex items-center">
                       <a className="flex-grow">
                         <span className="absolute inset-0" />
@@ -131,11 +134,8 @@ export default async function InternshipcardApplied() {
                         </p>
                         <p className="text-gray-600">{item.location}</p>
                       </div>
-                      <Link
-                        href={`/internship/${item.id}`}
-                        style={{ display: "flex", justifyContent: "flex-end" }}
-                      >
-                        <Bookmark text="Cancel Request" />
+                      <Link href={`/internship/${item.id}`}>
+                        <Bookmark text="Applied on" />
                       </Link>
                     </div>
                   </div>

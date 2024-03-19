@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import DashboardHeaderJobs from "@/components/dashboard-headers/DashboardheadersJobs";
+import DashboardHeaderInternships from "@/components/dashboard-headers/DashboardheadersInternships";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -10,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <div className={inter.className}>
-      <DashboardHeaderJobs />
+      <DashboardHeaderInternships />
       {children}
     </div>
   );

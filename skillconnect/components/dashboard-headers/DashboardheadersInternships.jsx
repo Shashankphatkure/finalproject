@@ -22,18 +22,18 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Coursesearch from "@/components/Searchdashboard/coursesearch";
 
 const navigation = [
-  { name: "Applied Jobs", href: "#", current: true },
-  { name: "My Resume", href: "#", current: false },
+  { name: "Applied Internships", href: "#", current: true },
   { name: "Recommendations", href: "#", current: false },
-  { name: "Skill assessment", href: "#", current: false },
-  { name: "Interview Preparation", href: "#", current: false },
+  { name: "Linkedin Post Generator", href: "#", current: false },
+  { name: "My Active Internships", href: "#", current: false },
+  { name: "Completed", href: "#", current: false },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function DashboardHeaderJobs({ children }) {
+export default function DashboardHeaderInternships({ children }) {
   return (
     <>
       {/*
@@ -126,7 +126,7 @@ export default function DashboardHeaderJobs({ children }) {
           <header className="py-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <h1 className="text-3xl font-bold tracking-tight text-white">
-                Applied Jobs
+                Applied Internships
               </h1>
             </div>
           </header>
