@@ -39,7 +39,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Applicationshell1() {
+export default function Applicationshell1({
+  title,
+  description,
+  language,
+  instructorname,
+}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -184,10 +189,14 @@ export default function Applicationshell1() {
               {/* Main area */}
             </div>
             <h1 className="mb-4 px-6">
-              <b>Dynamic Course Name</b>
+              <b>{title}</b>
             </h1>
             <Coursevideo1 />
-            <DescriptionListVideo />
+            <DescriptionListVideo
+              language={language}
+              description={description}
+              instructorname={instructorname}
+            />
           </main>
         </div>
 
