@@ -48,6 +48,7 @@ export default async function Page({ params }) {
         language={item.language}
         description={item.description}
         instructorname={item.instructor.instructorname}
+        courseid={item.id}
       />
     </div>
   );

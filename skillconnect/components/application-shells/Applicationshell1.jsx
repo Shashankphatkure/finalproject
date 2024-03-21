@@ -44,6 +44,7 @@ export default function Applicationshell1({
   description,
   language,
   instructorname,
+  courseid,
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -196,6 +197,7 @@ export default function Applicationshell1({
               language={language}
               description={description}
               instructorname={instructorname}
+              courseid={courseid}
             />
           </main>
         </div>

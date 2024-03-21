@@ -1,10 +1,39 @@
+import { useUser } from "@auth0/nextjs-auth0/client";
 import { PaperClipIcon } from "@heroicons/react/20/solid";
+import ApplicationModalReviews from "../ApplicationModal/Applicationmodalreview";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function DescriptionListVideo({
   language,
   description,
   instructorname,
+  courseid,
 }) {
+  const { user: authUser, isLoading } = useUser();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
+
+  const handleApplyClick = () => {
+    if (!isLoading && !authUser) {
+      router.push("/api/auth/login");
+      return null; // or a loading indicator
+    }
+
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSubmitApplication = (applicationData) => {
+    // Handle form submission here
+    // This is where you would send the data to Supabase
+    console.log(applicationData);
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="overflow-hidden bg-white shadow">
       <div className="px-4 py-6 sm:px-6">
@@ -30,8 +59,65 @@ export default function DescriptionListVideo({
             <dt className="text-sm font-medium text-gray-900">
               Course Description
             </dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {description}
+            <dd
+              className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></dd>
+          </div>
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-900">Ai Features</dt>
+            <dd className="mt-1  text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+              <div className="flex space-x-4">
+                <a
+                  href="https://skillchat.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    type="button"
+                    className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                  >
+                    Ai Chat
+                  </button>
+                </a>{" "}
+                <a
+                  href="https://skillconotes.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    type="button"
+                    className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                  >
+                    CoNotes
+                  </button>
+                </a>{" "}
+                <a
+                  href="https://skillchat.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    type="button"
+                    className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                  >
+                    Ai Quiz
+                  </button>
+                </a>{" "}
+                <button
+                  type="button"
+                  className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                  onClick={handleApplyClick}
+                >
+                  Review Course
+                </button>{" "}
+                <ApplicationModalReviews
+                  isOpen={isModalOpen}
+                  onClose={handleCloseModal}
+                  onSubmit={handleSubmitApplication}
+                  courseid={courseid}
+                />
+              </div>
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
