@@ -13,6 +13,7 @@ import Filterreviews from "@/components/reviews/reviews";
 import BlogSectionCourse from "@/components/blog-sections/BlogSectionCourse";
 import DashboardHeaderInstructor from "@/components/dashboard-headers/DashboardheadersInstructor";
 import Teamsections from "@/components/team-sections/team-sections1";
+import PaypalDirectCheckout from "@/app/test/2/page";
 const reviews = { average: 4, totalCount: 1624 };
 
 function classNames(...classes) {
@@ -190,12 +191,7 @@ export default async function Page({ params }) {
           {/* Product form */}
           <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
             <div>
-              <button
-                type="submit"
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-              >
-                Buy this course
-              </button>
+              <PaypalDirectCheckout id={item.id} price={item.price} />
             </div>
             <div className="mt-6 text-center">
               <a href="#" className="group inline-flex text-base font-medium">
