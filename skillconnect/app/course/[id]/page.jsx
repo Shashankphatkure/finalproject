@@ -145,9 +145,7 @@ export default async function Page({ params }) {
                       className="h-5 w-5 flex-shrink-0 text-green-500"
                       aria-hidden="true"
                     />
-                    <p className="ml-2 text-sm text-base text-gray-500 ">
-                      {learnItem}
-                    </p>
+                    <p className="ml-2 text-sm text-gray-500 ">{learnItem}</p>
                   </div>
                 ))}
               </div>
@@ -216,9 +214,7 @@ export default async function Page({ params }) {
                     className="h-5 w-5 flex-shrink-0 text-green-500"
                     aria-hidden="true"
                   />
-                  <p className="ml-2 text-sm text-base text-gray-500 ">
-                    {learnItem}
-                  </p>
+                  <p className="ml-2 text-sm text-gray-500 ">{learnItem}</p>
                 </div>
               ))}
             </div>
@@ -234,9 +230,7 @@ export default async function Page({ params }) {
                     className="h-5 w-5 flex-shrink-0 text-green-500"
                     aria-hidden="true"
                   />
-                  <p className="ml-2 text-sm text-base text-gray-500 ">
-                    {learnItem}
-                  </p>
+                  <p className="ml-2 text-sm text-gray-500 ">{learnItem}</p>
                 </div>
               ))}
             </div>
