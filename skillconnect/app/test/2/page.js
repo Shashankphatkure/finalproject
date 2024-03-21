@@ -1,6 +1,6 @@
 "use client";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-
+import supabase from "../../../utils/supabaseClient";
 export default function PaypalDirectCheckout({ id, price }) {
   const initialOptions = {
     "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
@@ -25,6 +25,14 @@ export default function PaypalDirectCheckout({ id, price }) {
 
   const onApprove = (data, actions) => {
     return actions.order.capture().then(function (details) {
+      supabase
+        .from("purchasedcourse")
+        .insert([{ courseid: id, created_at: new Date() }])
+        .then((response) => {
+          console.log("Purchase recorded:", response);
+          // Redirect to the success page
+        });
+
       // Redirect to the success page
       window.location.href = `/course/view/${id}`;
     });
