@@ -198,6 +198,7 @@ export default function Applicationshell1({
               description={description}
               instructorname={instructorname}
               courseid={courseid}
+              title={title}
             />
           </main>
         </div>

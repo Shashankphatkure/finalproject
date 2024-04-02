@@ -3,16 +3,34 @@ import { PaperClipIcon } from "@heroicons/react/20/solid";
 import ApplicationModalReviews from "../ApplicationModal/Applicationmodalreview";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import ApplicationModalQuiz from "../ApplicationModal/Applicationmodalquiz";
 
 export default function DescriptionListVideo({
   language,
   description,
   instructorname,
   courseid,
+  title,
 }) {
   const { user: authUser, isLoading } = useUser();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenquiz, setIsModalOpenquiz] = useState(false);
   const router = useRouter();
+
+  const handleQuizClick = () => {
+    setIsModalOpenquiz(true);
+  };
+
+  const handleQuizCloseModal = () => {
+    setIsModalOpenquiz(false);
+  };
+
+  const handleSubmitQuiz = (applicationData) => {
+    // Handle form submission here
+    // This is where you would send the data to Supabase
+    console.log(applicationData);
+    setIsModalOpenquiz(false);
+  };
 
   const handleApplyClick = () => {
     if (!isLoading && !authUser) {
@@ -92,18 +110,13 @@ export default function DescriptionListVideo({
                     CoNotes
                   </button>
                 </a>{" "}
-                <a
-                  href="https://skillchat.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                  onClick={handleQuizClick}
                 >
-                  <button
-                    type="button"
-                    className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  >
-                    Ai Quiz
-                  </button>
-                </a>{" "}
+                  Ai Quiz
+                </button>{" "}
                 <button
                   type="button"
                   className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
@@ -116,6 +129,12 @@ export default function DescriptionListVideo({
                   onClose={handleCloseModal}
                   onSubmit={handleSubmitApplication}
                   courseid={courseid}
+                />
+                <ApplicationModalQuiz
+                  isOpen={isModalOpenquiz}
+                  onClose={handleQuizCloseModal}
+                  onSubmit={handleSubmitQuiz}
+                  title={title}
                 />
               </div>
             </dd>
