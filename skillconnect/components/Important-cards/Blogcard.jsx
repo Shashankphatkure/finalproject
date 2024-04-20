@@ -66,9 +66,12 @@ export default async function Blogcard() {
                         {item.title}
                       </a>
                     </h3>
-                    <p className="mt-5 text-sm leading-6 text-gray-600">
-                      {item.description}
-                    </p>
+                    <p
+                      className="mt-5 text-sm leading-6 text-gray-600"
+                      dangerouslySetInnerHTML={{
+                        __html: item.description.slice(0, 300) + "...",
+                      }}
+                    ></p>
                   </div>
                   <div className="mt-6 flex border-t border-gray-900/5 pt-6">
                     <div className="relative flex items-center gap-x-4">

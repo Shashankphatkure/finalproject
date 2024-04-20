@@ -83,9 +83,12 @@ export default async function Coursecard() {
                       </h3>
                       <div className="ml-2">{renderStars(item.rating)}</div>
                     </div>
-                    <p className="mt-5 text-sm leading-6 text-gray-600">
-                      {item.description}
-                    </p>
+                    <p
+                      className="mt-5 text-sm leading-6 text-gray-600"
+                      dangerouslySetInnerHTML={{
+                        __html: item.description.slice(0, 300) + "...",
+                      }}
+                    ></p>
                   </div>
                   <div className="mt-6 flex border-t border-gray-900/5 pt-6">
                     <div className="relative flex items-center gap-x-4">
