@@ -11,11 +11,6 @@ const navigation = () => {
       sectionTitle: 'Apps & Pages'
     },
     {
-      title: 'Email',
-      icon: 'tabler:mail',
-      path: '/apps/email'
-    },
-    {
       title: 'Employee Chat',
       icon: 'tabler:messages',
       path: '/apps/chat'
