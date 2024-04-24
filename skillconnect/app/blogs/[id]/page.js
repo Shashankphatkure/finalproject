@@ -336,7 +336,7 @@ export default async function Page({ params }) {
                     </div>
                   </div>
 
-                  <SimilarBlogs />
+                  <SimilarBlogs documentId={2} />
                 </div>
               </div>
             </div>

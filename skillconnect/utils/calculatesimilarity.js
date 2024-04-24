@@ -28,7 +28,7 @@ async function searchSimilarDocumentsById(documentId) {
 
     // Perform similarity search
     const { data: documents, error: searchError } = await supabase.rpc(
-      "match_documents",
+      "match_blogs",
       {
         query_embedding: queryEmbedding,
         match_threshold: 0.78,

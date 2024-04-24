@@ -1,9 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 import { pipeline } from "@xenova/transformers";
 
-const supabaseUrl = "https://flmgwpthmwsxrpzgyeju.supabase.co";
+const supabaseUrl = "https://dxdpmgjttftkiqtlgcng.supabase.co";
 const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsbWd3cHRobXdzeHJwemd5ZWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE4ODQyMjEsImV4cCI6MjAyNzQ2MDIyMX0.ufsmipPJkMooGHFEx-vjtwFGydL0M_icFFYIQoKgov8"; // Replace with your actual Supabase key
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4ZHBtZ2p0dGZ0a2lxdGxnY25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyNzk5NDQsImV4cCI6MjAxNDg1NTk0NH0.DHTq4WkHgys5v0D9dj4i9Vfc9TCF7VuiGvRGR5RXYIY"; // Replace with your actual Supabase key
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -17,7 +17,7 @@ async function generateAndStoreEmbeddingsForAll() {
 
     // Fetch rows that need embeddings
     const { data: rows, error } = await supabase
-      .from("blogs")
+      .from("internships")
       .select("id, description")
       .is("embedding", null); // Use 'is' instead of 'eq' for NULL checks
 
@@ -36,7 +36,7 @@ async function generateAndStoreEmbeddingsForAll() {
       const embedding = Array.from(output.data);
 
       const { error: updateError } = await supabase
-        .from("blogs")
+        .from("internships")
         .update({ embedding })
         .eq("id", row.id);
 
